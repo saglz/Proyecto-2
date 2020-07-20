@@ -1,0 +1,29 @@
+footer {
+    width: 375px;
+    height: 196px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    div {
+        text-align: center;
+        a:not(:first-child) {
+            margin-left: 19px;
+        }
+    }
+}
+
+@media only screen and (min-width: 376px) {
+    footer {
+        width: 1440px;
+        height: 116px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        div {
+            width: 847px;
+            text-align: left;
+            margin-left: 19px;
+        }
+    }
+}

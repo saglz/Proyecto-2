@@ -1,0 +1,56 @@
+.favorites {
+    width: 375px;
+    height: 1151px;
+    .iconFavorites {
+        width: 28px;
+        height: 21px;
+        display: flex;
+        margin: auto;
+    }
+    h2 {
+        width: 375px;
+        height: 29px;
+        /* font-family: Montserrat-Bold; */
+        font-size: 20px;
+        color: #572EE5;
+        text-align: center;
+        line-height: 30px;
+    }
+}
+
+@media only screen and (min-width:376px) {
+    main {
+        .favorites {
+            width: 1440px;
+            height: 981px;
+            h2 {
+                width: 549px;
+                height: 30px;
+                margin: 0 auto;
+                font-size: 25px;
+                color: #572EE5;
+                text-align: center;
+                line-height: 30px;
+            }
+            .iconFavorites {
+                text-align: center;
+                margin: 0 auto;
+            }
+            .buttonFavorites {
+                display: none;
+            }
+            .carita {
+                text-align: center;
+                margin: 0 auto;
+            }
+            p {
+                text-align: center;
+                margin: 0 auto;
+                color: #50e3c2;
+                width: 431px;
+                height: 66px;
+                padding: 24px 0 137px 0;
+            }
+        }
+    }
+}
