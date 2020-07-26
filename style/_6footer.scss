@@ -10,6 +10,17 @@ footer {
             margin-left: 19px;
         }
     }
+    p:nth-child(1) {
+        width: 91px;
+        height: 18px;
+        font-size: 15px;
+    }
+    p:nth-child(2) {
+        width: 216px;
+        height: 20px;
+        font-size: 14px;
+        line-height: 20px;
+    }
 }
 
 @media only screen and (min-width: 376px) {
@@ -24,6 +35,16 @@ footer {
             width: 847px;
             text-align: left;
             margin-left: 19px;
+        }
+        p:nth-child(1) {
+            width: 79px;
+            height: 15px;
+            font-size: 13px;
+        }
+        p:nth-child(2) {
+            width: 200px;
+            height: 15px;
+            font-size: 13px;
         }
     }
 }

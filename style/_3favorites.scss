@@ -10,11 +10,9 @@
     h2 {
         width: 375px;
         height: 29px;
-        /* font-family: Montserrat-Bold; */
         font-size: 20px;
-        color: #572EE5;
-        text-align: center;
         line-height: 30px;
+        font-weight: 700;
     }
 }
 
@@ -28,20 +26,13 @@
                 height: 30px;
                 margin: 0 auto;
                 font-size: 25px;
-                color: #572EE5;
-                text-align: center;
-                line-height: 30px;
             }
             .iconFavorites {
                 text-align: center;
                 margin: 0 auto;
             }
-            .buttonFavorites {
-                display: none;
-            }
-            .carita {
-                text-align: center;
-                margin: 0 auto;
+            .buttonGeneral {
+                margin: 78px 656px 79px 657px;
             }
             p {
                 text-align: center;

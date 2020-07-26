@@ -1,9 +1,41 @@
-h1,
-h2,
-p {
-    /* font-family: ProximaNova-Bold; */
+/* Var */
+
+$fontMonserrat: 'Montserrat',
+sans-serif;
+$fontRoboto: 'Roboto',
+sans-serif;
+
+/* Style General */
+
+h1 {
+    font-family: $fontMonserrat;
+    font-size: 25px;
     color: #572EE5;
     text-align: center;
+    line-height: 33px;
+    font-weight: 700;
+}
+
+h2 {
+    font-family: $fontMonserrat;
+    color: #572EE5;
+    text-align: center;
+    line-height: 30px;
+    font-weight: 700;
+}
+
+p {
+    font-family: $fontRoboto;
+    color: #000000;
+    text-align: center;
+    line-height: 23px;
+    font-weight: 400;
+}
+
+a {
+    font-family: $fontMonserrat;
+    text-align: center;
+    line-height: 60px;
 }
 
 .edgePage {

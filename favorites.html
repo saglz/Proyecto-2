@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/hamburger.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -33,7 +34,11 @@
         <section class="favorites">
             <img class="iconFavorites" src='img/icon-favoritos.svg' alt='icon favorites'>
             <h2>Favoritos</h2>
-            <div class="imagesGeneral">
+            <!--             <label for="search" style="margin-left: 550px; width: 500px;">Search</label>
+            <input type="search" id="search" style="margin-left: 550px; width: 500px;"> -->
+            <button id="btnSearch" style="margin-left: 550px; width: 500px;">Go</button>
+            <div class="imagesGeneral" id="out">
+                <!-- <img src="https://api.giphy.com/v1/gifs/search?api_key=vcZZ9afZZzKY6qX9q4US8wITbdxp9wPG&limit=12&q=deadpool" alt="no carga">
                 <img src="https:/via.placeholder.com/156x120" alt="">
                 <img src="https:/via.placeholder.com/156x120" alt="">
                 <img src="https:/via.placeholder.com/156x120" alt="">
@@ -44,8 +49,7 @@
                 <img src="https:/via.placeholder.com/156x120" alt="">
                 <img src="https:/via.placeholder.com/156x120" alt="">
                 <img src="https:/via.placeholder.com/156x120" alt="">
-                <img src="https:/via.placeholder.com/156x120" alt="">
-                <img src="https:/via.placeholder.com/156x120" alt="">
+                <img src="https:/via.placeholder.com/156x120" alt=""> -->
             </div>
             <div class="buttonGeneral"> <a href=""> Ver más </a> </div>
 
@@ -55,7 +59,7 @@
 
         <section class="trending">
             <h2>Trending GIFOS</h2>
-            <p>Mira los últimos GIFOS de nuestra comunidad.</p>
+            <p>Mira los últimos <span>GIFOS de nuestra comunidad.</span></p>
             <div class="imgTrending">
                 <img src="https://via.placeholder.com/243x187" alt="">
                 <img src="https://via.placeholder.com/243x187" alt="">
@@ -77,6 +81,7 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/fetch.js"></script>
 </body>
 
 </html>
