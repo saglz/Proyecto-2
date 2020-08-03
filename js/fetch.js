@@ -25,19 +25,23 @@ function init() {
                         for (var i = 0; i < countSeeMore; i++) {
                             /* Crear imagen con GIF */
                             let img = document.createElement('img');
+                            img.setAttribute('id', `imgGIF${i}`);
                             img.src = content.data[i].images.original.url;
                             img.alt = content.data[i].title;
-                            console.log(img);
+                            /* console.log(img); */
 
                             /* Crear imagen con icono favoritos */
                             let imgHover = document.createElement('img');
+                            imgHover.setAttribute('id', `imgFav${i}`);
                             imgHover.src = "img/icon-fav-hover.svg";
                             imgHover.setAttribute('class', 'imgHover');
-                            console.log(imgHover);
+                            imgHover.setAttribute('onclick', 'captureImage(this)');
+                            /* console.log(imgHover); */
 
                             /* Agregar imagenes al div */
                             let div = document.createElement('div');
                             div.setAttribute('class', 'prueba');
+                            div.setAttribute('id', `divGif${i}`);
                             div.appendChild(img);
                             div.appendChild(imgHover);
 
@@ -105,3 +109,28 @@ document.getElementById("btnSeeMore").addEventListener("click", ev => {
 document.getElementById("search").addEventListener('change', inputChange => {
     document.getElementById("btnSearch").disabled = false;
 });
+
+
+var elPutoArreglo = [];
+
+function captureImage(laPutaImagen) {
+    let id = laPutaImagen.id;
+    let idGif = id.slice(6, 7);
+    let aux = document.getElementById(`imgGIF${idGif}`);
+    elPutoArreglo.push(document.getElementById(`imgGIF${idGif}`).src);
+    console.log(elPutoArreglo);
+    localStorage.setItem('ElPutoArr', JSON.stringify(elPutoArreglo));
+}
+
+/* function captureImage(laPutaImagen) {
+    let id = laPutaImagen.id;
+    console.log(id);
+    let idGif = id.slice(6, 7);
+    console.log(idGif);
+    let aux = document.getElementById(`imgGIF${idGif}`);
+    console.log(aux);
+    elPutoArreglo.push(document.getElementById(`imgGIF${idGif}`).src);
+    console.log(elPutoArreglo);
+
+    localStorage.setItem('ElPutoArr', JSON.stringify(elPutoArreglo));
+} */

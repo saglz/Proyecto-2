@@ -360,6 +360,13 @@ nav ul li:hover {
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 10;
+}
+
+.pets .prueba .imgHover:hover {
+  opacity: 0.7;
+  background: #c0c0c0;
+  border-radius: 6px;
 }
 
 @media only screen and (min-width: 376px) {
