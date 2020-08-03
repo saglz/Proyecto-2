@@ -18,16 +18,46 @@
         height: 130px;
         padding: 0;
     }
-    input {
+    .buttonSearch {
+        background: #FFFFFF;
+        border: 1px solid #572EE5;
+        border-radius: 27px;
+        padding: 1px 2px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         width: 334px;
-        height: 50px;
-        padding: 0;
-    }
-    input::placeholder {
-        text-align: center;
-        font-family: $fontRoboto;
-        font-weight: 400;
-        font-size: 16px;
+        input {
+            width: 290px;
+            height: 50px;
+            padding: 0 0 0 20px;
+            border: none;
+            border-radius: 27px;
+        }
+        input::placeholder {
+            text-align: center;
+            font-family: $fontRoboto;
+            font-weight: 400;
+            font-size: 16px;
+        }
+        input:focus {
+            outline: none !important;
+        }
+        button {
+            border: none;
+            border-radius: 27px;
+            background-color: #FFFFFF;
+            img {
+                height: 20px;
+                width: 20px;
+            }
+        }
+        button:focus {
+            outline: none;
+        }
+        button:hover {
+            cursor: pointer;
+        }
     }
     .contentSearch {
         text-align: center;
@@ -53,7 +83,17 @@
 
 .pets {
     width: 375px;
-    height: 1120px;
+    /* display: none; */
+    .prueba {
+        position: relative;
+        .imgHover {
+            width: 32px;
+            height: 32px;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
 }
 
 @media only screen and (min-width: 376px) {
@@ -82,10 +122,11 @@
                 width: 399px;
                 height: 190px;
             }
-            input {
+            .buttonSearch {
                 width: 551px;
-                height: 50px;
-                /* height: 200px; */
+                input {
+                    width: 500px;
+                }
             }
         }
         h2 {
@@ -104,10 +145,9 @@
         }
     }
     .pets {
-        display: none;
+        /* display: none; */
         width: 1440px;
-        height: 956px;
-        h1 {
+        h2 {
             margin: auto;
             width: 550px;
             height: 30px;

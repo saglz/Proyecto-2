@@ -245,38 +245,80 @@ nav ul li:hover {
   padding: 0;
 }
 
-.search input {
+.search .buttonSearch {
+  background: #FFFFFF;
+  border: 1px solid #572EE5;
+  border-radius: 27px;
+  padding: 1px 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 334px;
+}
+
+.search .buttonSearch input {
+  width: 290px;
   height: 50px;
-  padding: 0;
+  padding: 0 0 0 20px;
+  border: none;
+  border-radius: 27px;
 }
 
-.search input::-webkit-input-placeholder {
+.search .buttonSearch input::-webkit-input-placeholder {
   text-align: center;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 16px;
 }
 
-.search input:-ms-input-placeholder {
+.search .buttonSearch input:-ms-input-placeholder {
   text-align: center;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 16px;
 }
 
-.search input::-ms-input-placeholder {
+.search .buttonSearch input::-ms-input-placeholder {
   text-align: center;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 16px;
 }
 
-.search input::placeholder {
+.search .buttonSearch input::placeholder {
   text-align: center;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 16px;
+}
+
+.search .buttonSearch input:focus {
+  outline: none !important;
+}
+
+.search .buttonSearch button {
+  border: none;
+  border-radius: 27px;
+  background-color: #FFFFFF;
+}
+
+.search .buttonSearch button img {
+  height: 20px;
+  width: 20px;
+}
+
+.search .buttonSearch button:focus {
+  outline: none;
+}
+
+.search .buttonSearch button:hover {
+  cursor: pointer;
 }
 
 .search .contentSearch {
@@ -305,7 +347,19 @@ nav ul li:hover {
 
 .pets {
   width: 375px;
-  height: 1120px;
+  /* display: none; */
+}
+
+.pets .prueba {
+  position: relative;
+}
+
+.pets .prueba .imgHover {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 @media only screen and (min-width: 376px) {
@@ -345,10 +399,11 @@ nav ul li:hover {
     width: 399px;
     height: 190px;
   }
-  .search .contentSearch input {
+  .search .contentSearch .buttonSearch {
     width: 551px;
-    height: 50px;
-    /* height: 200px; */
+  }
+  .search .contentSearch .buttonSearch input {
+    width: 500px;
   }
   .search h2 {
     font-size: 18px;
@@ -365,11 +420,10 @@ nav ul li:hover {
     content: '';
   }
   .pets {
-    display: none;
+    /* display: none; */
     width: 1440px;
-    height: 956px;
   }
-  .pets h1 {
+  .pets h2 {
     margin: auto;
     width: 550px;
     height: 30px;

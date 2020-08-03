@@ -19,7 +19,6 @@
         <nav>
             <div class="containerBurger">
                 <i class="fas fa-bars menu"></i>
-                <!-- <i class="fas fa-times menu"></i> -->
             </div>
             <ul>
                 <li><a href="#">Modo Nocturo</a></li>
@@ -35,29 +34,21 @@
             <h1>Inspírate, busca, guarda, y crea <span>los mejores</span> <span>GIFOS</span></h1>
             <div class="contentSearch">
                 <img src="img/ilustra_header.svg" alt="family">
-                <input type="text" placeholder="Busca GIFOS y más">
+                <div class="buttonSearch">
+                    <input type="text" id="search" placeholder="Busca GIFOS y más">
+                    <button id="btnSearch"><img src="img/icon-search.svg" alt="Lupita"></button>
+                </div>
             </div>
             <h2>Trending:</h2>
             <p> Reactions, Entertainment, <span>Sports, Stickers, Artists</span></p>
         </section>
 
-        <section class="pets">
-            <h1>Mascotas</h1>
-            <div class="imagesGeneral">
-                <img src="https://via.placeholder.com/260x200" alt="image GIF">
-                <img src="https://via.placeholder.com/260x200" alt="image GIF">
-                <img src="https://via.placeholder.com/260x200" alt="image GIF">
-                <img src="https://via.placeholder.com/260x200" alt="image GIF">
-                <img src="https://via.placeholder.com/260x200" alt="image GIF">
-                <img src="https://via.placeholder.com/260x200" alt="image GIF">
-                <img src="https://via.placeholder.com/260x200" alt="image GIF">
-                <img src="https://via.placeholder.com/260x200" alt="image GIF">
-                <img src="https://via.placeholder.com/260x200" alt="image GIF">
-                <img src="https://via.placeholder.com/260x200" alt="image GIF">
-                <img src="https://via.placeholder.com/260x200" alt="image GIF">
-                <img src="https://via.placeholder.com/260x200" alt="image GIF">
+        <section class="pets" id="sectionSearch">
+            <h2 id="h2SectionSearch"></h2>
+            <!-- Importar imagenes GIF -->
+            <div class="imagesGeneral" id="searchIndex">
             </div>
-            <button class="buttonGeneral">VER MAS</button>
+            <button class="buttonGeneral" id="btnSeeMore">VER MAS</button>
         </section>
 
         <section class="trending">
@@ -83,6 +74,7 @@
     <div class="edgePage"></div>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/fetch.js"></script>
 </body>
 
 </html>
