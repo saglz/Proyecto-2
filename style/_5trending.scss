@@ -25,17 +25,21 @@
         }
     }
     .imgTrending {
-        width: 375px;
+        width: 342px;
         overflow: hidden;
         display: grid;
         grid-template-columns: repeat(3, 243px);
         grid-template-rows: repeat(1, 187px);
         gap: 22px;
+        margin-left: 32px;
         img {
-            margin-left: 22px;
             width: 243px;
             height: 187px;
         }
+    }
+    .btnBack,
+    .btnNext {
+        display: none;
     }
 }
 
@@ -56,7 +60,7 @@
             font-size: 18px;
         }
         .imgTrending {
-            width: 1440px;
+            width: 1215px;
             overflow: hidden;
             display: grid;
             grid-template-columns: repeat(3, 357px);
@@ -64,9 +68,28 @@
             gap: 29px;
             justify-content: center;
             margin-top: 53px;
+            margin-left: 0;
             img {
                 width: 357px;
                 height: 275px;
+            }
+        }
+        .containerCarouselTrending {
+            width: 1440px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            .btnBack,
+            .btnNext {
+                display: block;
+                width: 24px;
+                height: 24px;
+                padding: 16px;
+                border: 1px solid #572EE5;
+            }
+            .btnBack:hover,
+            .btnNext:hover {
+                background-color: #572EE5;
             }
         }
     }

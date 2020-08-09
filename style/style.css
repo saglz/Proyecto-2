@@ -53,6 +53,7 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  outline: none !important;
 }
 
 .buttonGeneral a {
@@ -62,6 +63,11 @@ a {
   letter-spacing: 0;
   text-align: center;
   text-decoration: none;
+}
+
+.buttonGeneral:hover {
+  background: #572EE5;
+  color: #ffffff;
 }
 
 .imagesGeneral {
@@ -78,6 +84,88 @@ a {
 .imagesGeneral img {
   width: 156px;
   height: 120px;
+}
+
+.iconsHover {
+  width: 375px;
+  display: none;
+}
+
+.iconsHover .containerImg {
+  position: relative;
+}
+
+.iconsHover .containerImg .icon {
+  width: 17px;
+  height: 17px;
+  padding: 10px;
+  position: absolute;
+  background: #FFFFFF;
+  border-radius: 6px;
+  z-index: 10;
+  display: none;
+}
+
+.iconsHover .containerImg .icon:hover {
+  opacity: 0.7;
+  background: #c0c0c0;
+  border-radius: 6px;
+}
+
+.iconsHover .containerImg .pUser,
+.iconsHover .containerImg .pTitle {
+  display: none;
+  position: absolute;
+  color: #FFFFFF;
+}
+
+.iconsHover .imgHover:hover {
+  background-color: #572EE5;
+}
+
+.iconsHover .imgHover:hover img:nth-child(1) {
+  opacity: 0.3;
+  background-color: #572EE5;
+}
+
+.iconsHover .imgHover:hover .imgFavorite {
+  top: 10px;
+  right: 95px;
+  display: block;
+}
+
+.iconsHover .imgHover:hover .imgFavorite:active {
+  content: url(/img/icon-fav-active.svg);
+}
+
+.iconsHover .imgHover:hover .imgDownload {
+  top: 10px;
+  right: 52px;
+  display: block;
+}
+
+.iconsHover .imgHover:hover .imgFullSize {
+  top: 10px;
+  right: 10px;
+  display: block;
+}
+
+.iconsHover .imgHover:hover .pUser {
+  top: 121px;
+  left: 12px;
+  display: block;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.iconsHover .imgHover:hover .pTitle {
+  top: 143px;
+  left: 12px;
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: left;
 }
 
 @media only screen and (min-width: 376px) {
@@ -345,30 +433,6 @@ nav ul li:hover {
   white-space: pre;
 }
 
-.pets {
-  width: 375px;
-  /* display: none; */
-}
-
-.pets .prueba {
-  position: relative;
-}
-
-.pets .prueba .imgHover {
-  width: 32px;
-  height: 32px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 10;
-}
-
-.pets .prueba .imgHover:hover {
-  opacity: 0.7;
-  background: #c0c0c0;
-  border-radius: 6px;
-}
-
 @media only screen and (min-width: 376px) {
   .search {
     width: 1440px;
@@ -427,7 +491,7 @@ nav ul li:hover {
     content: '';
   }
   .pets {
-    /* display: none; */
+    display: none;
     width: 1440px;
   }
   .pets h2 {
@@ -572,7 +636,7 @@ nav ul li:hover {
 }
 
 .trending .imgTrending {
-  width: 375px;
+  width: 342px;
   overflow: hidden;
   display: -ms-grid;
   display: grid;
@@ -581,12 +645,17 @@ nav ul li:hover {
   -ms-grid-rows: (187px)[1];
       grid-template-rows: repeat(1, 187px);
   gap: 22px;
+  margin-left: 32px;
 }
 
 .trending .imgTrending img {
-  margin-left: 22px;
   width: 243px;
   height: 187px;
+}
+
+.trending .btnBack,
+.trending .btnNext {
+  display: none;
 }
 
 @media only screen and (min-width: 376px) {
@@ -609,7 +678,7 @@ nav ul li:hover {
     font-size: 18px;
   }
   .trending .imgTrending {
-    width: 1440px;
+    width: 1215px;
     overflow: hidden;
     display: -ms-grid;
     display: grid;
@@ -622,10 +691,34 @@ nav ul li:hover {
         -ms-flex-pack: center;
             justify-content: center;
     margin-top: 53px;
+    margin-left: 0;
   }
   .trending .imgTrending img {
     width: 357px;
     height: 275px;
+  }
+  .trending .containerCarouselTrending {
+    width: 1440px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .trending .containerCarouselTrending .btnBack,
+  .trending .containerCarouselTrending .btnNext {
+    display: block;
+    width: 24px;
+    height: 24px;
+    padding: 16px;
+    border: 1px solid #572EE5;
+  }
+  .trending .containerCarouselTrending .btnBack:hover,
+  .trending .containerCarouselTrending .btnNext:hover {
+    background-color: #572EE5;
   }
 }
 
@@ -641,14 +734,17 @@ footer {
           flex-direction: column;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-}
-
-footer div {
-  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 footer div a:not(:first-child) {
   margin-left: 19px;
+}
+
+footer div img:hover {
+  background: #572EE5;
 }
 
 footer p:nth-child(1) {
@@ -687,15 +783,17 @@ footer p:nth-child(2) {
     text-align: left;
     margin-left: 19px;
   }
-  footer p:nth-child(1) {
-    width: 79px;
-    height: 15px;
+  footer p {
     font-size: 13px;
+    font-weight: 400;
   }
-  footer p:nth-child(2) {
+  footer p:nth-child(1) {
+    /* width: 79px; */
+    height: 31px;
+  }
+  footer p:nth-child(3) {
     width: 200px;
-    height: 15px;
-    font-size: 13px;
+    height: 23px;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -54,6 +54,7 @@ a {
     justify-content: center;
     margin: auto;
     align-items: center;
+    outline: none !important;
     a {
         /*   font-family: Montserrat-Bold; */
         font-size: 13px;
@@ -62,6 +63,11 @@ a {
         text-align: center;
         text-decoration: none;
     }
+}
+
+.buttonGeneral:hover {
+    background: #572EE5;
+    color: #ffffff;
 }
 
 .imagesGeneral {
@@ -73,6 +79,76 @@ a {
     img {
         width: 156px;
         height: 120px;
+    }
+}
+
+.iconsHover {
+    width: 375px;
+    display: none;
+    .containerImg {
+        position: relative;
+        .icon {
+            width: 17px;
+            height: 17px;
+            padding: 10px;
+            position: absolute;
+            background: #FFFFFF;
+            border-radius: 6px;
+            z-index: 10;
+            display: none;
+        }
+        .icon:hover {
+            opacity: 0.7;
+            background: #c0c0c0;
+            border-radius: 6px;
+        }
+        .pUser,
+        .pTitle {
+            display: none;
+            position: absolute;
+            color: #FFFFFF;
+        }
+    }
+    .imgHover:hover {
+        background-color: #572EE5;
+        img:nth-child(1) {
+            opacity: 0.3;
+            background-color: #572EE5;
+        }
+        .imgFavorite {
+            top: 10px;
+            right: 95px;
+            display: block;
+        }
+        .imgFavorite:active {
+            content: url(/img/icon-fav-active.svg);
+        }
+        .imgDownload {
+            top: 10px;
+            right: 52px;
+            display: block;
+        }
+        .imgFullSize {
+            top: 10px;
+            right: 10px;
+            display: block;
+        }
+        .pUser {
+            top: 121px;
+            left: 12px;
+            display: block;
+            font-size: 15px;
+            font-weight: 400;
+            text-align: left;
+        }
+        .pTitle {
+            top: 143px;
+            left: 12px;
+            display: block;
+            font-size: 16px;
+            font-weight: 700;
+            text-align: left;
+        }
     }
 }
 

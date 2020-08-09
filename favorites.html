@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body onload="loadContentFav()">
     <div class="edgePage"></div>
     <header>
         <a href="index.html" class="logo"><img src="img/logo-mobile.svg" alt="logo pagina"></a>
@@ -32,25 +32,25 @@
     <main>
 
         <section class="favorites">
-            <!-- onload="loadContentFav()" -->
             <img class="iconFavorites" src='img/icon-favoritos.svg' alt='icon favorites'>
             <h2>Favoritos</h2>
             <div class="imagesGeneral" id="outImgFav">
 
             </div>
-            <div class="buttonGeneral" onclick="loadContentFav()"> <a href="#"> Ver más </a> </div>
+            <div class="buttonGeneral" onclick="clearFavorites()"> <a href="#"> Ver más </a> </div>
 
             <!-- <img src="img/icon-mis-gifos-sin-contenido.svg" alt="image Gifos without content">
             <p>"¡Guarda tu primer GIFO en Favoritos para que se muestre aquí!"</p> -->
         </section>
 
-        <section class="trending">
+        <section class="trending iconsHover">
             <h2>Trending GIFOS</h2>
             <p>Mira los últimos <span>GIFOS de nuestra comunidad.</span></p>
-            <div class="imgTrending">
-                <img src="https://via.placeholder.com/243x187" alt="">
-                <img src="https://via.placeholder.com/243x187" alt="">
-                <img src="https://via.placeholder.com/243x187" alt="">
+            <div class="containerCarouselTrending">
+                <img class="btnBack" id="btnBack" src="img/button-left.svg" alt="">
+                <div class="imgTrending" id="sectionTrending">
+                </div>
+                <img class="btnNext" id="btnNext" src="img/button-right.svg" alt="">
             </div>
         </section>
 
@@ -68,6 +68,8 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/favorites.js"></script>
+    <script type="text/javascript" src="js/trending.js"></script>
 </body>
 
 </html>

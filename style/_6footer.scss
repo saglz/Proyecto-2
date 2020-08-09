@@ -4,10 +4,13 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
     div {
-        text-align: center;
         a:not(:first-child) {
             margin-left: 19px;
+        }
+        img:hover {
+            background: #572EE5;
         }
     }
     p:nth-child(1) {
@@ -36,15 +39,17 @@ footer {
             text-align: left;
             margin-left: 19px;
         }
-        p:nth-child(1) {
-            width: 79px;
-            height: 15px;
+        p {
             font-size: 13px;
+            font-weight: 400;
         }
-        p:nth-child(2) {
+        p:nth-child(1) {
+            /* width: 79px; */
+            height: 31px;
+        }
+        p:nth-child(3) {
             width: 200px;
-            height: 15px;
-            font-size: 13px;
+            height: 23px;
         }
     }
 }

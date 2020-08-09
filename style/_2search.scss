@@ -81,27 +81,6 @@
     }
 }
 
-.pets {
-    width: 375px;
-    /* display: none; */
-    .prueba {
-        position: relative;
-        .imgHover {
-            width: 32px;
-            height: 32px;
-            position: absolute;
-            top: 0;
-            right: 0;
-            z-index: 10;
-        }
-        .imgHover:hover {
-            opacity: 0.7;
-            background: #c0c0c0;
-            border-radius: 6px;
-        }
-    }
-}
-
 @media only screen and (min-width: 376px) {
     .search {
         width: 1440px;
@@ -151,7 +130,7 @@
         }
     }
     .pets {
-        /* display: none; */
+        display: none;
         width: 1440px;
         h2 {
             margin: auto;
