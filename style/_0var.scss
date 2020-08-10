@@ -55,14 +55,10 @@ a {
     margin: auto;
     align-items: center;
     outline: none !important;
-    a {
-        /*   font-family: Montserrat-Bold; */
-        font-size: 13px;
-        color: #572EE5;
-        letter-spacing: 0;
-        text-align: center;
-        text-decoration: none;
-    }
+    font-family: $fontMonserrat;
+    font-weight: 700;
+    font-size: 13px;
+    color: #572EE5;
 }
 
 .buttonGeneral:hover {
@@ -152,6 +148,51 @@ a {
     }
 }
 
+.changeTheme {
+    background: #37383C;
+    .trending {
+        background: #222326;
+    }
+    h1,
+    h2,
+    p,
+    a {
+        color: #FFFFFF;
+    }
+    nav {
+        ul {
+            background: #000000;
+        }
+    }
+    .edgePage {
+        background: #000000;
+    }
+    .search {
+        p {
+            color: #FFFFFF;
+        }
+        .buttonSearch {
+            background: #37383C;
+            button {
+                background: #37383C;
+            }
+            input {
+                color: #6B7989;
+                background: #37383C;
+            }
+        }
+    }
+    .buttonGeneral {
+        background: #37383C;
+        color: #ffffff;
+        border: 1px solid #FFFFFF;
+    }
+    .buttonGeneral:hover {
+        background: #ffffff;
+        color: #000000;
+    }
+}
+
 @media only screen and (min-width: 376px) {
     .edgePage {
         width: 1440px;
@@ -165,6 +206,13 @@ a {
         img {
             width: 260px;
             height: 200px;
+        }
+    }
+    .changeTheme {
+        nav {
+            ul {
+                background: #37383C;
+            }
         }
     }
 }

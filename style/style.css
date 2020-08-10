@@ -54,15 +54,10 @@ a {
       -ms-flex-align: center;
           align-items: center;
   outline: none !important;
-}
-
-.buttonGeneral a {
-  /*   font-family: Montserrat-Bold; */
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
   font-size: 13px;
   color: #572EE5;
-  letter-spacing: 0;
-  text-align: center;
-  text-decoration: none;
 }
 
 .buttonGeneral:hover {
@@ -168,6 +163,57 @@ a {
   text-align: left;
 }
 
+.changeTheme {
+  background: #37383C;
+}
+
+.changeTheme .trending {
+  background: #222326;
+}
+
+.changeTheme h1,
+.changeTheme h2,
+.changeTheme p,
+.changeTheme a {
+  color: #FFFFFF;
+}
+
+.changeTheme nav ul {
+  background: #000000;
+}
+
+.changeTheme .edgePage {
+  background: #000000;
+}
+
+.changeTheme .search p {
+  color: #FFFFFF;
+}
+
+.changeTheme .search .buttonSearch {
+  background: #37383C;
+}
+
+.changeTheme .search .buttonSearch button {
+  background: #37383C;
+}
+
+.changeTheme .search .buttonSearch input {
+  color: #6B7989;
+  background: #37383C;
+}
+
+.changeTheme .buttonGeneral {
+  background: #37383C;
+  color: #ffffff;
+  border: 1px solid #FFFFFF;
+}
+
+.changeTheme .buttonGeneral:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
 @media only screen and (min-width: 376px) {
   .edgePage {
     width: 1440px;
@@ -185,6 +231,9 @@ a {
   .imagesGeneral img {
     width: 260px;
     height: 200px;
+  }
+  .changeTheme nav ul {
+    background: #37383C;
   }
 }
 
@@ -521,6 +570,35 @@ nav ul li:hover {
   font-size: 20px;
   line-height: 30px;
   font-weight: 700;
+}
+
+.favorites .saveFirstGifoHidden {
+  display: none;
+}
+
+.favorites .saveFirstGifoVisible {
+  height: 930px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: space-around;
+      -ms-flex-align: space-around;
+          align-items: space-around;
+}
+
+.favorites .outImgFav {
+  display: none;
+}
+
+.favorites .buttonGeneralHidden {
+  display: none;
 }
 
 @media only screen and (min-width: 376px) {

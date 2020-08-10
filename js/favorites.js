@@ -9,12 +9,18 @@ function loadContentFav() {
             let outImg = document.getElementById('outImgFav');
             outImg.appendChild(img);
         }
+        document.getElementById('outImgFav').classList.remove('outImgFav');
+        document.getElementById('buttonGeneralFavorites').classList.remove('buttonGeneralHidden');
     } else {
         console.log('Favoritos no tienes imagenes agregadas');
+        document.getElementById('saveFirstGifo').classList = 'saveFirstGifoVisible';
+        document.getElementById('outImgFav').classList.toggle('outImgFav');
+        document.getElementById('buttonGeneralFavorites').classList.toggle('buttonGeneralHidden');
     }
 
 }
 
 function clearFavorites() {
     localStorage.clear();
+    location.reload();
 }

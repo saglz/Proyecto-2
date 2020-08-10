@@ -2,11 +2,17 @@
 let countStartTrending = 0;
 let countEndTrending = 3;
 
+/*  */
+const API_KEY_TRENDING = "vcZZ9afZZzKY6qX9q4US8wITbdxp9wPG";
+document.addEventListener("DOMContentLoaded", initTrending);
+
+
+/* Botones siguiente y atras trending */
 document.getElementById("btnNext").addEventListener('click', () => {
     countStartTrending++;
     countEndTrending++;
     document.getElementById('sectionTrending').innerText = "";
-    init();
+    initTrending();
 });
 
 document.getElementById("btnBack").addEventListener('click', () => {
@@ -16,21 +22,15 @@ document.getElementById("btnBack").addEventListener('click', () => {
         countStartTrending--;
         countEndTrending--;
         document.getElementById('sectionTrending').innerText = "";
-        init();
+        initTrending();
 
     }
 });
 
-const API_KEY_TRENDING = "vcZZ9afZZzKY6qX9q4US8wITbdxp9wPG";
-//you will need to get your own API KEY
 
-document.addEventListener("DOMContentLoaded", init);
-
-function init() {
-
-
+function initTrending() {
     let url = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY_TRENDING}&limit=${countEndTrending}&q=`;
-    let str = 'cat'; /* document.getElementById("search").value.trim(); */
+    let str = 'cat';
     url = url.concat(str);
     console.log(url);
     fetch(url).then(response => response.json()).then(content => {
@@ -57,7 +57,7 @@ function init() {
                         let imgFavorite = document.createElement('img');
                         imgFavorite.setAttribute('id', `imgFavT${i}`);
                         imgFavorite.src = "img/icon-fav-hover.svg";
-                        imgFavorite.setAttribute('onclick', 'addFavorites(this)');
+                        imgFavorite.setAttribute('onclick', 'addFavoritesTrending(this)');
                         imgFavorite.setAttribute('class', 'icon imgFavorite');
 
                         let imgDownload = document.createElement('img');
@@ -100,4 +100,24 @@ function init() {
         .catch(err => {
             console.error(err);
         });
+}
+
+var arrayFavorites = [];
+
+var arrFav = JSON.parse(localStorage.getItem("sendFavorites"));
+console.log(arrFav);
+if (arrFav != null) {
+    arrayFavorites = arrFav;
+}
+
+
+function addFavoritesTrending(iconFavorite) {
+
+    let idImgHtml = iconFavorite.id;
+    let extractLastDigit = idImgHtml.slice(7, idImgHtml.length);
+    let tagGif = document.getElementById(`imgTren${extractLastDigit}`);
+    arrayFavorites.push(tagGif.src);
+    console.log(arrayFavorites);
+    localStorage.setItem('sendFavorites', JSON.stringify(arrayFavorites));
+    location.reload();
 }

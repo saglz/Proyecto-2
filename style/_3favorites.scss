@@ -14,6 +14,22 @@
         line-height: 30px;
         font-weight: 700;
     }
+    .saveFirstGifoHidden {
+        display: none;
+    }
+    .saveFirstGifoVisible {
+        height: 930px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: space-around;
+    }
+    .outImgFav {
+        display: none;
+    }
+    .buttonGeneralHidden {
+        display: none;
+    }
 }
 
 @media only screen and (min-width:376px) {
