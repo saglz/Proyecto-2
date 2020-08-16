@@ -800,6 +800,142 @@ nav ul li:hover {
   }
 }
 
+.createGifos {
+  width: 1440px;
+  height: 572px;
+}
+
+.createGifos .cam {
+  height: 390px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.createGifos .cam img:nth-child(1) {
+  margin-left: 156px;
+}
+
+.createGifos .cam img:nth-child(2) {
+  margin-right: 4px;
+}
+
+.createGifos .cam .camLoad {
+  width: 688px;
+  height: 390px;
+  border: 1px solid #572EE5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.createGifos .cam .camLoad h2 {
+  font-size: 25px;
+}
+
+.createGifos .cam .camLoad h2 span {
+  color: #50E3C2;
+}
+
+.createGifos .cam .camLoad p {
+  font-size: 16px;
+}
+
+.createGifos .cam .camLoad video {
+  display: none;
+}
+
+.createGifos .page {
+  height: 88px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.createGifos .page span {
+  width: 11px;
+  height: 21px;
+  padding: 5px 10px;
+  border: 1px solid #572EE5;
+  border-radius: 50%;
+  text-align: center;
+  color: #572EE5;
+}
+
+.createGifos .page span:hover {
+  background: #572EE5;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.createGifos .page span:nth-child(1),
+.createGifos .page span:nth-child(2) {
+  margin-right: 25px;
+}
+
+.createGifos .page span:nth-child(3) {
+  margin-right: 138px;
+}
+
+.createGifos .page p {
+  width: 131px;
+  height: 16px;
+  margin-right: 67px;
+  color: #572EE5;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+.createGifos .page img {
+  margin-right: 167px;
+}
+
+.createGifos .separator {
+  width: 796px;
+  height: 7px;
+  background: #572EE5;
+  margin: 0 auto;
+  border-radius: 25px;
+}
+
+.createGifos #btnStart {
+  margin-top: 20px;
+}
+
+.camLoadHidden h2,
+.camLoadHidden p {
+  display: none;
+}
+
+.camLoadHidden video {
+  display: block !important;
+  width: 480px;
+  height: 320px;
+  margin: 0 auto;
+}
+
+.active {
+  background: #572EE5 !important;
+  color: #ffffff !important;
+}
+
 footer {
   width: 375px;
   height: 196px;

@@ -29,40 +29,26 @@
         <a href="createGifos.html"><img src="img/button-crear-gifo.svg" class="createGifo" alt=""></a>
     </header>
     <main>
-
-        <section class="search">
-            <h1>Inspírate, busca, guarda, y crea <span>los mejores</span> <span>GIFOS</span></h1>
-            <div class="contentSearch">
-                <img src="img/ilustra_header.svg" alt="family">
-                <div class="buttonSearch">
-                    <input type="text" id="search" placeholder="Busca GIFOS y más">
-                    <button id="btnSearch"><img src="img/icon-search.svg" alt="Lupita"></button>
+        <section class="createGifos">
+            <div class="cam">
+                <img src="img/camara.svg" alt="">
+                <img src="img/element-luz-camara.svg" alt="">
+                <div class="camLoad" id="camLoad">
+                    <h2>Aquí podrás <br> crear tus propios <span>GIFOS</span></h2>
+                    <p>¡Crea tu GIFO en sólo 3 pasos! <br> (sólo necesitas una cámara para grabar un video)</p>
+                    <video autoplay></video>
                 </div>
             </div>
-            <h2>Trending:</h2>
-            <p> Reactions, Entertainment, <span>Sports, Stickers, Artists</span></p>
-        </section>
-
-        <section class="iconsHover pets" id="sectionSearch">
-            <h2 id="h2SectionSearch"></h2>
-            <!-- Importar imagenes GIF -->
-            <div class="imagesGeneral" id="searchIndex">
-
+            <div class="page">
+                <span id="btnAllowCam">1</span>
+                <span id="btnRecordCam">2</span>
+                <span id="btnUploadCam">3</span>
+                <p></p>
+                <img src="img/pelicula.svg" alt="">
             </div>
-            <button class="buttonGeneral" id="btnSeeMore">VER MAS</button>
+            <div class="separator"></div>
+            <button class="buttonGeneral" id="btnStart">COMENZAR</button>
         </section>
-
-        <section class="trending iconsHover">
-            <h2>Trending GIFOS</h2>
-            <p>Mira los últimos <span>GIFOS de nuestra comunidad.</span></p>
-            <div class="containerCarouselTrending">
-                <img class="btnBack" id="btnBack" src="img/button-left.svg" alt="">
-                <div class="imgTrending" id="sectionTrending">
-                </div>
-                <img class="btnNext" id="btnNext" src="img/button-right.svg" alt="">
-            </div>
-        </section>
-
     </main>
     <footer>
         <p>Compartir en:</p>
@@ -74,10 +60,10 @@
         <p>© GIFOS 2020 All Rights Reserved.</p>
     </footer>
     <div class="edgePage"></div>
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/fetch.js"></script>
-    <script type="text/javascript" src="js/trending.js"></script>
+    <script src="js/createGifos.js"></script>
 </body>
 
 </html>
