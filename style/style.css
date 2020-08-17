@@ -83,7 +83,7 @@ a {
 
 .iconsHover {
   width: 375px;
-  display: none;
+  /* display: none; */
 }
 
 .iconsHover .containerImg {
@@ -214,6 +214,10 @@ a {
   color: #000000;
 }
 
+.hidden {
+  display: none;
+}
+
 @media only screen and (min-width: 376px) {
   .edgePage {
     width: 1440px;
@@ -297,6 +301,10 @@ nav ul li:hover {
   display: block;
 }
 
+.hiddenCreateGifos {
+  display: none;
+}
+
 .createGifo {
   display: none;
 }
@@ -338,14 +346,14 @@ nav ul li:hover {
   nav ul li:hover {
     background: #b9e4e1;
   }
+  .hiddenCreateGifos {
+    display: block;
+  }
   .createGifo {
     display: block;
     border: 1px solid #572EE5;
     border-radius: 50%;
   }
-  /* .active {
-        display: none;
-    } */
 }
 
 .search {
@@ -399,63 +407,77 @@ nav ul li:hover {
   width: 334px;
 }
 
-.search .buttonSearch input {
-  width: 290px;
+.search .buttonSearch .containerInpImg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.search .buttonSearch .containerInpImg input {
+  width: 277px;
   height: 50px;
   padding: 0 0 0 20px;
   border: none;
   border-radius: 27px;
 }
 
-.search .buttonSearch input::-webkit-input-placeholder {
+.search .buttonSearch .containerInpImg input::-webkit-input-placeholder {
   text-align: center;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 16px;
 }
 
-.search .buttonSearch input:-ms-input-placeholder {
+.search .buttonSearch .containerInpImg input:-ms-input-placeholder {
   text-align: center;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 16px;
 }
 
-.search .buttonSearch input::-ms-input-placeholder {
+.search .buttonSearch .containerInpImg input::-ms-input-placeholder {
   text-align: center;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 16px;
 }
 
-.search .buttonSearch input::placeholder {
+.search .buttonSearch .containerInpImg input::placeholder {
   text-align: center;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 16px;
 }
 
-.search .buttonSearch input:focus {
+.search .buttonSearch .containerInpImg input:focus {
   outline: none !important;
 }
 
-.search .buttonSearch button {
+.search .buttonSearch .containerInpImg button {
   border: none;
   border-radius: 27px;
   background-color: #FFFFFF;
 }
 
-.search .buttonSearch button img {
+.search .buttonSearch .containerInpImg button img {
   height: 20px;
   width: 20px;
 }
 
-.search .buttonSearch button:focus {
+.search .buttonSearch .containerInpImg button:focus {
   outline: none;
 }
 
-.search .buttonSearch button:hover {
+.search .buttonSearch .containerInpImg button:hover {
   cursor: pointer;
+}
+
+.search .buttonSearch .containerInpImg .btnCloseHidden {
+  display: none;
+}
+
+.search .buttonSearch ul {
+  display: none;
 }
 
 .search .contentSearch {
@@ -480,6 +502,23 @@ nav ul li:hover {
 .search p span::before {
   content: '\A';
   white-space: pre;
+}
+
+.styleNoFound {
+  width: 1440px;
+  height: 576px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media only screen and (min-width: 376px) {
@@ -520,10 +559,48 @@ nav ul li:hover {
     height: 190px;
   }
   .search .contentSearch .buttonSearch {
-    width: 551px;
+    width: 560px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
-  .search .contentSearch .buttonSearch input {
+  .search .contentSearch .buttonSearch .containerInpImg {
+    border-radius: 32px;
+  }
+  .search .contentSearch .buttonSearch .containerInpImg input {
     width: 500px;
+  }
+  .search .contentSearch .buttonSearch ul {
+    list-style-image: url("../img/icon-search.svg");
+  }
+  .search .contentSearch .buttonSearch .ulShow {
+    display: block;
+    text-align: start;
+    color: #9CAFC3;
+    width: 531px;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .search .contentSearch .buttonSearch .orderInpImg input {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    width: 460px;
+  }
+  .search .contentSearch .buttonSearch .orderInpImg #btnSearch {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  .search .contentSearch .buttonSearch .orderInpImg #btnClose {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
   }
   .search h2 {
     font-size: 18px;
@@ -540,7 +617,7 @@ nav ul li:hover {
     content: '';
   }
   .pets {
-    display: none;
+    /* display: none; */
     width: 1440px;
   }
   .pets h2 {

@@ -26,7 +26,7 @@
                 <li><a href="myGifos.html">Mis GIFOS</a></li>
             </ul>
         </nav>
-        <a href="createGifos.html"><img src="img/button-crear-gifo.svg" class="createGifo" alt=""></a>
+        <a href="createGifos.html" class="hiddenCreateGifos"><img src="img/button-crear-gifo.svg" class="createGifo" alt=""></a>
     </header>
     <main>
 
@@ -35,15 +35,27 @@
             <div class="contentSearch">
                 <img src="img/ilustra_header.svg" alt="family">
                 <div class="buttonSearch">
-                    <input type="text" id="search" placeholder="Busca GIFOS y más">
-                    <button id="btnSearch"><img src="img/icon-search.svg" alt="Lupita"></button>
+                    <div class="containerInpImg" id="containerInpImg">
+                        <input type="text" id="search" placeholder="Busca GIFOS y más">
+                        <button id="btnSearch"><img src="img/icon-search.svg" alt="Lupita"></button>
+                        <button id="btnClose" class="btnCloseHidden"><img src="img/close.svg" alt="image button"></button>
+                    </div>
+                    <ul id="ulSearch">
+
+                    </ul>
                 </div>
             </div>
-            <h2>Trending:</h2>
-            <p> Reactions, Entertainment, <span>Sports, Stickers, Artists</span></p>
+            <h2 id="subtitleTrending">Trending:</h2>
+            <p id="descriptionTrending"> Reactions, Entertainment, <span>Sports, Stickers, Artists</span></p>
         </section>
 
-        <section class="iconsHover pets" id="sectionSearch">
+        <div id="noFound" class="hidden">
+            <h2 id="noFoundH2"></h2>
+            <img src="img/icon-busqueda-sin-resultado.svg" alt="">
+            <p>Intenta con otra búsqueda.</p>
+        </div>
+
+        <section class="iconsHover pets hidden" id="sectionSearch">
             <h2 id="h2SectionSearch"></h2>
             <!-- Importar imagenes GIF -->
             <div class="imagesGeneral" id="searchIndex">

@@ -10,15 +10,19 @@ document.getElementById("search").addEventListener('keyup', onKeyUp);
 
 function init() {
 
+
+    document.getElementById('noFound').classList.remove('styleNoFound');
+    document.getElementById('noFound').classList.add('hidden');
+
     let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=${countSeeMore}&q=`;
-    let str = document.getElementById("search").value.trim();
+    let str = document.getElementById("search").value;
     url = url.concat(str);
     console.log(url);
     fetch(url).then(response => response.json()).then(content => {
             console.log(content.data);
             if (content.data != "") {
                 try {
-                    document.getElementById('sectionSearch').style.display = 'block';
+                    document.getElementById('sectionSearch').classList.remove('hidden');
                     document.getElementById('searchIndex').innerText = "";
                     document.getElementById('h2SectionSearch').innerText = document.getElementById("search").value;
                     for (var i = 0; i < 12; i++) {
@@ -78,6 +82,7 @@ function init() {
                 }
             } else {
                 alert('No hay GIF para la palabra buscada: ' + document.getElementById('search').value);
+                showMessageNoFound();
             }
 
         })
@@ -91,13 +96,15 @@ function init() {
 document.getElementById("btnSeeMore").addEventListener("click", ev => {
     ev.preventDefault();
 
+    document.getElementById('noFound').classList.remove('styleNoFound');
+    document.getElementById('noFound').classList.add('hidden');
 
     countSeeMore += 12;
     countSeeLess = 12;
     countSeeLess = countSeeMore - countSeeLess;
 
     let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=${countSeeMore}&q=`;
-    let str = document.getElementById("search").value.trim();
+    let str = document.getElementById("search").value;
     url = url.concat(str);
     console.log(url);
     fetch(url).then(response => response.json()).then(content => {
@@ -163,12 +170,22 @@ document.getElementById("btnSeeMore").addEventListener("click", ev => {
                 }
             } else {
                 alert('No hay GIF para la palabra buscada: ' + document.getElementById('search').value);
+                showMessageNoFound();
             }
         })
         .catch(err => {
             console.error(err);
         });
 });
+
+function showMessageNoFound() {
+    let divNofound = document.getElementById('noFound');
+    divNofound.classList.remove('hidden');
+    divNofound.classList.add('styleNoFound');
+    document.getElementById('noFoundH2').innerText = document.getElementById('search').value;
+    document.getElementById('sectionSearch').classList.add('hidden')
+}
+
 
 /* Activar boton */
 document.getElementById("search").addEventListener('change', inputChange => {
@@ -205,3 +222,64 @@ function onKeyUp(event) {
         init();
     }
 }
+
+document.getElementById('search').addEventListener('keyup', suggestSearch);
+
+function suggestSearch() {
+
+    let keyword = document.getElementById('search').value;
+    if (keyword) {
+        const endpoint = `https://api.giphy.com/v1/tags/related/${keyword}?api_key=${APIKEY}`;
+
+        fetch(endpoint)
+            .then(response => response.json())
+            .then(data => {
+
+                var ulSearch = document.getElementById('ulSearch');
+                ulSearch.innerHTML = "";
+                ulSearch.classList.add('ulShow');
+
+                for (var i = 0; i < 4; i++) {
+                    let li = document.createElement('li');
+                    li.innerText = data.data[i].name;
+                    li.setAttribute('onclick', 'completeInput(this)')
+                    ulSearch.appendChild(li);
+                }
+
+            });
+
+        document.getElementById('btnClose').classList.remove('btnCloseHidden');
+
+        let containerInpImg = document.getElementById('containerInpImg');
+        containerInpImg.classList.add('orderInpImg');
+
+        document.getElementById('subtitleTrending').classList.add('hidden');
+        document.getElementById('descriptionTrending').classList.add('hidden');
+
+    } else {
+        clearSuggest();
+    }
+
+}
+
+function completeInput(valueLi) {
+    let inputSearch = document.getElementById('search');
+    inputSearch.value = valueLi.innerText;
+    console.log(inputSearch);
+    init();
+}
+
+function clearSuggest() {
+    ulSearch.innerHTML = "";
+    ulSearch.classList.remove('ulShow');
+    document.getElementById('search').value = "";
+    document.getElementById('containerInpImg').classList.remove('orderInpImg');
+    document.getElementById('btnClose').classList.add('btnCloseHidden');
+    document.getElementById('subtitleTrending').classList.remove('hidden');
+    document.getElementById('descriptionTrending').classList.remove('hidden');
+    document.getElementById('noFound').classList.add('hidden');
+    document.getElementById('noFound').classList.remove('styleNoFound');
+
+}
+
+document.getElementById('btnClose').addEventListener('click', clearSuggest);

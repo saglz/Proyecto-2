@@ -27,36 +27,45 @@
         align-items: center;
         justify-content: space-between;
         width: 334px;
-        input {
-            width: 290px;
-            height: 50px;
-            padding: 0 0 0 20px;
-            border: none;
-            border-radius: 27px;
-        }
-        input::placeholder {
-            text-align: center;
-            font-family: $fontRoboto;
-            font-weight: 400;
-            font-size: 16px;
-        }
-        input:focus {
-            outline: none !important;
-        }
-        button {
-            border: none;
-            border-radius: 27px;
-            background-color: #FFFFFF;
-            img {
-                height: 20px;
-                width: 20px;
+        .containerInpImg {
+            display: flex;
+            input {
+                width: 277px;
+                height: 50px;
+                padding: 0 0 0 20px;
+                border: none;
+                border-radius: 27px;
+            }
+            input::placeholder {
+                text-align: center;
+                font-family: $fontRoboto;
+                font-weight: 400;
+                font-size: 16px;
+            }
+            input:focus {
+                outline: none !important;
+            }
+            button {
+                border: none;
+                border-radius: 27px;
+                background-color: #FFFFFF;
+                img {
+                    height: 20px;
+                    width: 20px;
+                }
+            }
+            button:focus {
+                outline: none;
+            }
+            button:hover {
+                cursor: pointer;
+            }
+            .btnCloseHidden {
+                display: none;
             }
         }
-        button:focus {
-            outline: none;
-        }
-        button:hover {
-            cursor: pointer;
+        ul {
+            display: none;
         }
     }
     .contentSearch {
@@ -79,6 +88,15 @@
             white-space: pre;
         }
     }
+}
+
+.styleNoFound {
+    width: 1440px;
+    height: 576px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 @media only screen and (min-width: 376px) {
@@ -108,9 +126,38 @@
                 height: 190px;
             }
             .buttonSearch {
-                width: 551px;
-                input {
-                    width: 500px;
+                width: 560px;
+                display: flex;
+                flex-direction: column;
+                .containerInpImg {
+                    border-radius: 32px;
+                    input {
+                        width: 500px;
+                    }
+                }
+                ul {
+                    list-style-image: url('../img/icon-search.svg');
+                }
+                .ulShow {
+                    display: block;
+                    text-align: start;
+                    color: #9CAFC3;
+                    width: 531px;
+                    font-family: $fontRoboto;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+                .orderInpImg {
+                    input {
+                        order: 2;
+                        width: 460px;
+                    }
+                    #btnSearch {
+                        order: 1;
+                    }
+                    #btnClose {
+                        order: 3;
+                    }
                 }
             }
         }
@@ -130,7 +177,7 @@
         }
     }
     .pets {
-        display: none;
+        /* display: none; */
         width: 1440px;
         h2 {
             margin: auto;
