@@ -1,17 +1,21 @@
 //Variables
 let countSeeMore = 12;
-let countSeeLess = 12;
+let countID = 0;
+let auxExtractLastDigitSearch = 0;
 
 const APIKEY = "vcZZ9afZZzKY6qX9q4US8wITbdxp9wPG";
 
 /* Even Listener     */
 document.getElementById("btnSearch").addEventListener("click", init);
 
+document.getElementById("btnSeeMore").addEventListener("click", seeMore);
+
 document.getElementById("search").addEventListener('keyup', onKeyUp);
 
 document.getElementById('btnClose').addEventListener('click', clearSuggest);
 
 document.getElementById('search').addEventListener('keyup', suggestSearch);
+
 
 /* ____________________________________________________________________________________________________________________________________ */
 /*                                    FUNCIONES DE BUSQUEDA DE GIF - BTN_LUPA BTN_VER_MAS                                               */
@@ -23,7 +27,7 @@ function init() {
     document.getElementById('noFound').classList.remove('styleNoFound');
     document.getElementById('noFound').classList.add('hidden');
 
-    let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=${countSeeMore}&q=`;
+    let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=12&offset=0&q=`;
     let str = document.getElementById("search").value;
     url = url.concat(str);
     console.log(url);
@@ -34,57 +38,9 @@ function init() {
                     document.getElementById('sectionSearch').classList.remove('hidden');
                     document.getElementById('searchIndex').innerText = "";
                     document.getElementById('h2SectionSearch').innerText = document.getElementById("search").value;
-                    for (var i = 0; i < 12; i++) {
-                        /* Crear imagen con GIF */
-                        let img = document.createElement('img');
-                        img.setAttribute('id', `imgGIF${i}`);
-                        img.src = content.data[i].images.original.url;
-                        img.alt = content.data[i].title;
 
-                        let pUser = document.createElement('p');
-                        pUser.innerText = "User";
-                        pUser.setAttribute('class', 'pUser');
-                        let pTitle = document.createElement('p');
-                        pTitle.innerText = content.data[i].title;
-                        pTitle.setAttribute('class', 'pTitle');
+                    createImgSearch(content, countID);
 
-
-                        /* Crear iconos Favoritos, Descarga y Maximizar */
-                        let imgFavorite = document.createElement('img');
-                        imgFavorite.setAttribute('id', `imgFav${i}`);
-                        imgFavorite.src = "img/icon-fav-hover.svg";
-                        imgFavorite.setAttribute('onclick', 'addFavorites(this)');
-                        imgFavorite.setAttribute('class', 'icon imgFavorite');
-
-                        let imgDownload = document.createElement('img');
-                        imgDownload.setAttribute('id', `imgDow${i}`);
-                        imgDownload.src = "img/icon-download.svg";
-                        imgDownload.setAttribute('onclick', 'download(this)');
-                        imgDownload.setAttribute('class', 'icon imgDownload');
-
-                        let imgFullSize = document.createElement('img');
-                        imgFullSize.setAttribute('id', `imgFul${i}`);
-                        imgFullSize.src = "img/icon-max.svg";
-                        imgFullSize.setAttribute('onclick', 'fullScreen(this)');
-                        imgFullSize.setAttribute('class', 'icon imgFullSize');
-
-                        /* Agregar imagenes al div */
-                        let div = document.createElement('div');
-                        div.setAttribute('class', 'containerImg imgHover');
-                        div.setAttribute('id', `divGif${i}`);
-
-                        div.appendChild(img); /* Agregar imagen buscada */
-                        div.appendChild(imgFavorite); /* Agregar icono Favorito <3*/
-                        div.appendChild(imgDownload); /* Agregar icono Descargar */
-                        div.appendChild(imgFullSize); /* Agregar icono Pantalla completa */
-                        div.appendChild(pUser); /* Agregar texto usuario */
-                        div.appendChild(pTitle); /* Agregar Titulo Gif */
-
-
-                        /* Agregar div a la seccion */
-                        let out = document.getElementById('searchIndex');
-                        out.appendChild(div);
-                    }
                     document.getElementById("btnSearch").disabled = true;
                 } catch (error) {
                     console.log(error);
@@ -98,24 +54,23 @@ function init() {
         .catch(err => {
             console.error(err);
         });
-    /* }); */
 }
 
 /* Event Listener boton ver más*/
-document.getElementById("btnSeeMore").addEventListener("click", ev => {
-    ev.preventDefault();
+function seeMore() {
 
     document.getElementById('noFound').classList.remove('styleNoFound');
     document.getElementById('noFound').classList.add('hidden');
 
-    countSeeMore += 12;
-    countSeeLess = 12;
-    countSeeLess = countSeeMore - countSeeLess;
 
-    let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=${countSeeMore}&q=`;
+    let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=12&offset=${countSeeMore}&q=`;
     let str = document.getElementById("search").value;
     url = url.concat(str);
     console.log(url);
+
+    countSeeMore += 12;
+
+
     fetch(url).then(response => response.json()).then(content => {
             console.log(content.data);
             if (content.data != "") {
@@ -123,56 +78,10 @@ document.getElementById("btnSeeMore").addEventListener("click", ev => {
                     document.getElementById('sectionSearch').style.display = 'block';
                     document.getElementById('h2SectionSearch').innerText = document.getElementById("search").value;
 
-                    for (var i = countSeeLess; i < countSeeMore; i++) {
-                        let img = document.createElement('img');
-                        img.setAttribute('id', `imgGIF${i}`);
-                        img.src = content.data[i].images.original.url;
-                        img.alt = content.data[i].title;
+                    countID += 12;
 
-                        let pUser = document.createElement('p');
-                        pUser.innerText = "User";
-                        pUser.setAttribute('class', 'pUser');
-                        let pTitle = document.createElement('p');
-                        pTitle.innerText = content.data[i].title;
-                        pTitle.setAttribute('class', 'pTitle');
+                    createImgSearch(content, countID);
 
-
-                        /* Crear iconos Favoritos, Descarga y Maximizar */
-                        let imgFavorite = document.createElement('img');
-                        imgFavorite.setAttribute('id', `imgFav${i}`);
-                        imgFavorite.src = "img/icon-fav-hover.svg";
-                        imgFavorite.setAttribute('onclick', 'addFavorites(this)');
-                        imgFavorite.setAttribute('class', 'icon imgFavorite');
-
-                        let imgDownload = document.createElement('img');
-                        imgDownload.setAttribute('id', `imgDow${i}`);
-                        imgDownload.src = "img/icon-download.svg";
-                        imgDownload.setAttribute('onclick', 'download(this)');
-                        imgDownload.setAttribute('class', 'icon imgDownload');
-
-                        let imgFullSize = document.createElement('img');
-                        imgFullSize.setAttribute('id', `imgFul${i}`);
-                        imgFullSize.src = "img/icon-max.svg";
-                        imgFullSize.setAttribute('onclick', 'fullScreen(this)');
-                        imgFullSize.setAttribute('class', 'icon imgFullSize');
-
-                        /* Agregar imagenes al div */
-                        let div = document.createElement('div');
-                        div.setAttribute('class', 'containerImg imgHover');
-                        div.setAttribute('id', `divGif${i}`);
-
-                        div.appendChild(img); /* Agregar imagen buscada */
-                        div.appendChild(imgFavorite); /* Agregar icono Favorito <3*/
-                        div.appendChild(imgDownload); /* Agregar icono Descargar */
-                        div.appendChild(imgFullSize); /* Agregar icono Pantalla completa */
-                        div.appendChild(pUser); /* Agregar texto usuario */
-                        div.appendChild(pTitle); /* Agregar Titulo Gif */
-
-
-                        /* Agregar div a la seccion */
-                        let out = document.getElementById('searchIndex');
-                        out.appendChild(div);
-                    }
                 } catch (error) {
                     alert('No hay más imagenes');
                     console.log(error);
@@ -185,7 +94,65 @@ document.getElementById("btnSeeMore").addEventListener("click", ev => {
         .catch(err => {
             console.error(err);
         });
-});
+
+}
+
+
+function createImgSearch(content, countID) {
+    for (var i = 0; i < 12; i++) {
+        let img = document.createElement('img');
+        img.setAttribute('id', `imgGIF${countID}`);
+        img.src = content.data[i].images.original.url;
+        img.alt = content.data[i].title;
+
+        let pUser = document.createElement('p');
+        pUser.innerText = "User";
+        pUser.setAttribute('class', 'pUser');
+        let pTitle = document.createElement('p');
+        pTitle.innerText = content.data[i].title;
+        pTitle.setAttribute('class', 'pTitle');
+
+
+        /* Crear iconos Favoritos, Descarga y Maximizar */
+        let imgFavorite = document.createElement('img');
+        imgFavorite.setAttribute('id', `imgFav${countID}`);
+        imgFavorite.src = "img/icon-fav-hover.svg";
+        imgFavorite.setAttribute('onclick', 'addFavorites(this)');
+        imgFavorite.setAttribute('class', 'icon imgFavorite');
+
+        let imgDownload = document.createElement('img');
+        imgDownload.setAttribute('id', `imgDow${countID}`);
+        imgDownload.src = "img/icon-download.svg";
+        imgDownload.setAttribute('onclick', 'download(this)');
+        imgDownload.setAttribute('class', 'icon imgDownload');
+
+        let imgFullSize = document.createElement('img');
+        imgFullSize.setAttribute('id', `imgFul${countID}`);
+        imgFullSize.src = "img/icon-max.svg";
+        imgFullSize.setAttribute('onclick', 'fullScreen(this)');
+        imgFullSize.setAttribute('class', 'icon imgFullSize');
+
+        /* Agregar imagenes al div */
+        let div = document.createElement('div');
+        div.setAttribute('class', 'containerImg imgHover');
+        div.setAttribute('id', `divGif${countID}`);
+
+        div.appendChild(img); /* Agregar imagen buscada */
+        div.appendChild(imgFavorite); /* Agregar icono Favorito <3*/
+        div.appendChild(imgDownload); /* Agregar icono Descargar */
+        div.appendChild(imgFullSize); /* Agregar icono Pantalla completa */
+        div.appendChild(pUser); /* Agregar texto usuario */
+        div.appendChild(pTitle); /* Agregar Titulo Gif */
+
+
+        /* Agregar div a la seccion */
+        let out = document.getElementById('searchIndex');
+        out.appendChild(div);
+
+        countID++;
+    }
+}
+
 
 
 /* ____________________________________________________________________________________________________________________________________ */
@@ -229,7 +196,7 @@ function addFavorites(iconFavorite) {
 }
 
 /* ____________________________________________________________________________________________________________________________________ */
-
+/* Tecla enter */
 function onKeyUp(event) {
     var keycode = event.keyCode;
     if (keycode == '13') {
@@ -244,8 +211,8 @@ function suggestSearch() {
 
     let keyword = document.getElementById('search').value;
     if (keyword) {
-        const endpoint = `https://api.giphy.com/v1/tags/related/${keyword}?api_key=${APIKEY}`;
-
+        /* const endpoint = `https://api.giphy.com/v1/tags/related/${keyword}?api_key=${APIKEY}`; */
+        const endpoint = `https://api.giphy.com/v1/gifs/search/tags?api_key=${APIKEY}&q=${keyword}`;
         fetch(endpoint)
             .then(response => response.json())
             .then(data => {
@@ -311,6 +278,7 @@ function fullScreen(iconFullScreen) {
 
     let idImgFullScreen = iconFullScreen.id;
     let extractLastDigit = idImgFullScreen.slice(6, idImgFullScreen.length);
+    auxExtractLastDigitSearch = extractLastDigit;
     let imgFullScreenSrc = document.getElementById(`imgGIF${extractLastDigit}`).src;
 
     let imgClose = document.createElement('img');
@@ -324,6 +292,7 @@ function fullScreen(iconFullScreen) {
     let btnBack = document.createElement('img');
     btnBack.src = '../img/button-left.svg';
     btnBack.setAttribute('class', 'btnBack');
+    btnBack.setAttribute('onclick', 'backGifFullScreen()');
 
     let imgFullScreen = document.createElement('img');
     imgFullScreen.src = imgFullScreenSrc;
@@ -333,7 +302,7 @@ function fullScreen(iconFullScreen) {
     let btnNext = document.createElement('img');
     btnNext.src = '../img/button-right.svg';
     btnNext.setAttribute('class', 'btnNext');
-
+    btnNext.setAttribute('onclick', 'nextGifFullScreen()');
 
     let divImgDirection = document.createElement('div');
     divImgDirection.classList.add('styleImgDirection');
@@ -403,3 +372,60 @@ async function download(e) {
     a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
     a.click();
 }
+
+function nextGifFullScreen() {
+
+    auxExtractLastDigitSearch++;
+    backOrNextGif();
+}
+
+function backGifFullScreen() {
+
+    auxExtractLastDigitSearch--;
+    backOrNextGif();
+
+}
+
+function backOrNextGif() {
+
+    let imgNextGif = document.getElementById(`imgGIF${auxExtractLastDigitSearch}`);
+    let getTitle = document.getElementById(`divGif${auxExtractLastDigitSearch}`);
+    if (getTitle) {
+        let sendTitle = getTitle.getElementsByClassName('pTitle')[0].innerText;
+
+        let imgFullScreen = document.getElementById(`imgFullScreen`);
+        let getTitleFullScreen = document.getElementsByClassName(`styleDivText`)[0];
+        let pTitle = getTitleFullScreen.getElementsByTagName(`p`)[1];
+
+        if (imgNextGif != null) {
+            imgFullScreen.src = imgNextGif.src;
+            pTitle.innerText = sendTitle;
+        }
+
+    } else {
+        console.log('No hay más imagenes');
+        auxExtractLastDigitSearch = 0;
+    }
+
+}
+
+//Autocomplete
+
+/* document.getElementById('search').addEventListener('keyup', autocomplete);
+function autocomplete (){
+let keyword = document.getElementById('search').value;
+let input = document.getElementById('search');
+    if(keyword){
+    const endpointAutocomplete = `https://api.giphy.com/v1/gifs/search/tags?api_key=${APIKEY}&q=${keyword}`; 
+    const endpointAutocomplete = `https://api.giphy.com/v1/gifs/search/tags?api_key=vcZZ9afZZzKY6qX9q4US8wITbdxp9wPG&q=l`; 
+    fetch(endpointAutocomplete)
+        .then(response => response.json())
+        .then(data => {
+                input.innerText = data.data[0].name;
+                input.setAttribute('onclick', 'autocompleteInput(this)' )  
+        });
+    }else{
+    }
+}
+ function autocompleteInput() {
+} */

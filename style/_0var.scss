@@ -56,8 +56,8 @@ a {
     align-items: center;
     outline: none !important;
     font-family: $fontMonserrat;
-    font-weight: 700;
     font-size: 13px;
+    font-weight: 700;
     color: #572EE5;
 }
 
@@ -80,6 +80,7 @@ a {
 
 .iconsHover {
     width: 375px;
+    /*   display: none;  */
     .containerImg {
         position: relative;
         .icon {
@@ -92,16 +93,16 @@ a {
             z-index: 10;
             display: none;
         }
-        .icon:hover {
-            opacity: 0.7;
-            background: #c0c0c0;
-            border-radius: 6px;
-        }
         .pUser,
         .pTitle {
             display: none;
             position: absolute;
             color: #FFFFFF;
+        }
+        .icon:hover {
+            opacity: 0.7;
+            background: #c0c0c0;
+            border-radius: 6px;
         }
     }
     .imgHover:hover {
@@ -133,7 +134,7 @@ a {
             left: 12px;
             display: block;
             font-size: 15px;
-            font-weight: 400;
+            font-weight: 400px;
             text-align: left;
         }
         .pTitle {
@@ -161,6 +162,16 @@ a {
     nav {
         ul {
             background: #000000;
+            li a {
+                &:hover {
+                    text-decoration: underline #5ED7C6;
+                    text-decoration-style: solid;
+                }
+                &:active {
+                    color: #9CAFC3;
+                    text-decoration: none;
+                }
+            }
         }
     }
     .edgePage {
@@ -183,16 +194,56 @@ a {
     }
     .buttonGeneral {
         background: #37383C;
-        color: #ffffff;
+        color: #FFFFFF;
         border: 1px solid #FFFFFF;
+        font-family: $fontMonserrat;
     }
     .buttonGeneral:hover {
-        background: #ffffff;
+        background: #FFFFFF;
         color: #000000;
+    }
+    .createGifo {
+        background: #FFFFFF;
+        &:active {
+            background: #9CAFC3;
+        }
+    }
+    .search .buttonSearch .containerInpImg button {
+        background-color: unset;
+    }
+    .styleDivText p {
+        color: #000000;
+    }
+    .trending .containerCarouselTrending .btnBack:hover,
+    .trending .containerCarouselTrending .btnNext:hover {
+        background: #FFFFFF;
+    }
+    .createGifos .page span {
+        font-family: $fontRoboto;
+        font-size: 18px;
+        font-weight: 500;
+        color: #FFFFFF;
+        border: 1px solid #FFFFFF;
+    }
+    .createGifos {
+        .page {
+            p {
+                color: #FFFFFF;
+            }
+            span:hover {
+                background-color: #FFFFFF;
+                color: #000000;
+            }
+        }
     }
 }
 
 .hidden {
+    display: none;
+}
+
+.btnBack,
+.btnNext {
     display: none;
 }
 
@@ -228,6 +279,6 @@ a {
     }
     .btnBack:hover,
     .btnNext:hover {
-        background-color: #572EE5;
+        background: #572EE5;
     }
 }

@@ -55,8 +55,8 @@ a {
           align-items: center;
   outline: none !important;
   font-family: "Montserrat", sans-serif;
-  font-weight: 700;
   font-size: 13px;
+  font-weight: 700;
   color: #572EE5;
 }
 
@@ -83,6 +83,7 @@ a {
 
 .iconsHover {
   width: 375px;
+  /*   display: none;  */
 }
 
 .iconsHover .containerImg {
@@ -100,17 +101,17 @@ a {
   display: none;
 }
 
-.iconsHover .containerImg .icon:hover {
-  opacity: 0.7;
-  background: #c0c0c0;
-  border-radius: 6px;
-}
-
 .iconsHover .containerImg .pUser,
 .iconsHover .containerImg .pTitle {
   display: none;
   position: absolute;
   color: #FFFFFF;
+}
+
+.iconsHover .containerImg .icon:hover {
+  opacity: 0.7;
+  background: #c0c0c0;
+  border-radius: 6px;
 }
 
 .iconsHover .imgHover:hover {
@@ -149,7 +150,7 @@ a {
   left: 12px;
   display: block;
   font-size: 15px;
-  font-weight: 400;
+  font-weight: 400px;
   text-align: left;
 }
 
@@ -181,6 +182,18 @@ a {
   background: #000000;
 }
 
+.changeTheme nav ul li a:hover {
+  -webkit-text-decoration: underline #5ED7C6;
+          text-decoration: underline #5ED7C6;
+  -webkit-text-decoration-style: solid;
+          text-decoration-style: solid;
+}
+
+.changeTheme nav ul li a:active {
+  color: #9CAFC3;
+  text-decoration: none;
+}
+
 .changeTheme .edgePage {
   background: #000000;
 }
@@ -204,16 +217,60 @@ a {
 
 .changeTheme .buttonGeneral {
   background: #37383C;
-  color: #ffffff;
+  color: #FFFFFF;
   border: 1px solid #FFFFFF;
+  font-family: "Montserrat", sans-serif;
 }
 
 .changeTheme .buttonGeneral:hover {
-  background: #ffffff;
+  background: #FFFFFF;
+  color: #000000;
+}
+
+.changeTheme .createGifo {
+  background: #FFFFFF;
+}
+
+.changeTheme .createGifo:active {
+  background: #9CAFC3;
+}
+
+.changeTheme .search .buttonSearch .containerInpImg button {
+  background-color: unset;
+}
+
+.changeTheme .styleDivText p {
+  color: #000000;
+}
+
+.changeTheme .trending .containerCarouselTrending .btnBack:hover,
+.changeTheme .trending .containerCarouselTrending .btnNext:hover {
+  background: #FFFFFF;
+}
+
+.changeTheme .createGifos .page span {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+}
+
+.changeTheme .createGifos .page p {
+  color: #FFFFFF;
+}
+
+.changeTheme .createGifos .page span:hover {
+  background-color: #FFFFFF;
   color: #000000;
 }
 
 .hidden {
+  display: none;
+}
+
+.btnBack,
+.btnNext {
   display: none;
 }
 
@@ -248,7 +305,7 @@ a {
   }
   .btnBack:hover,
   .btnNext:hover {
-    background-color: #572EE5;
+    background: #572EE5;
   }
 }
 
