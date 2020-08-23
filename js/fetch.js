@@ -4,10 +4,19 @@ let countSeeLess = 12;
 
 const APIKEY = "vcZZ9afZZzKY6qX9q4US8wITbdxp9wPG";
 
+/* Even Listener     */
 document.getElementById("btnSearch").addEventListener("click", init);
 
 document.getElementById("search").addEventListener('keyup', onKeyUp);
 
+document.getElementById('btnClose').addEventListener('click', clearSuggest);
+
+document.getElementById('search').addEventListener('keyup', suggestSearch);
+
+/* ____________________________________________________________________________________________________________________________________ */
+/*                                    FUNCIONES DE BUSQUEDA DE GIF - BTN_LUPA BTN_VER_MAS                                               */
+
+/* funcion de busqueda inicial*/
 function init() {
 
 
@@ -56,7 +65,7 @@ function init() {
                         let imgFullSize = document.createElement('img');
                         imgFullSize.setAttribute('id', `imgFul${i}`);
                         imgFullSize.src = "img/icon-max.svg";
-                        imgFullSize.setAttribute('onclick', 'fullSize(this)');
+                        imgFullSize.setAttribute('onclick', 'fullScreen(this)');
                         imgFullSize.setAttribute('class', 'icon imgFullSize');
 
                         /* Agregar imagenes al div */
@@ -92,7 +101,7 @@ function init() {
     /* }); */
 }
 
-
+/* Event Listener boton ver más*/
 document.getElementById("btnSeeMore").addEventListener("click", ev => {
     ev.preventDefault();
 
@@ -144,7 +153,7 @@ document.getElementById("btnSeeMore").addEventListener("click", ev => {
                         let imgFullSize = document.createElement('img');
                         imgFullSize.setAttribute('id', `imgFul${i}`);
                         imgFullSize.src = "img/icon-max.svg";
-                        imgFullSize.setAttribute('onclick', 'fullSize(this)');
+                        imgFullSize.setAttribute('onclick', 'fullScreen(this)');
                         imgFullSize.setAttribute('class', 'icon imgFullSize');
 
                         /* Agregar imagenes al div */
@@ -178,6 +187,11 @@ document.getElementById("btnSeeMore").addEventListener("click", ev => {
         });
 });
 
+
+/* ____________________________________________________________________________________________________________________________________ */
+/*                                                          FUNCIONALIDADES                                                             */
+
+/* Habilitar div de busqueda no encontrada */
 function showMessageNoFound() {
     let divNofound = document.getElementById('noFound');
     divNofound.classList.remove('hidden');
@@ -187,12 +201,14 @@ function showMessageNoFound() {
 }
 
 
-/* Activar boton */
+/* Desactivar el boton de busqueda una vez cambie el input */
 document.getElementById("search").addEventListener('change', inputChange => {
     document.getElementById("btnSearch").disabled = false;
 });
 
 
+/* ____________________________________________________________________________________________________________________________________ */
+/*                                                          ALMACENAR LOCAL STORAGE                                                     */
 var arrayFavorites = [];
 
 var arrFav = JSON.parse(localStorage.getItem("sendFavorites"));
@@ -212,18 +228,17 @@ function addFavorites(iconFavorite) {
     localStorage.setItem('sendFavorites', JSON.stringify(arrayFavorites));
 }
 
+/* ____________________________________________________________________________________________________________________________________ */
 
 function onKeyUp(event) {
     var keycode = event.keyCode;
     if (keycode == '13') {
-        alert('hola')
         document.getElementById('searchIndex').innerText = "";
         countSeeMore = 12;
         init();
     }
 }
 
-document.getElementById('search').addEventListener('keyup', suggestSearch);
 
 function suggestSearch() {
 
@@ -267,12 +282,13 @@ function completeInput(valueLi) {
     inputSearch.value = valueLi.innerText;
     console.log(inputSearch);
     init();
+    clearSuggest(false);
 }
 
-function clearSuggest() {
+function clearSuggest(clear = true) {
     ulSearch.innerHTML = "";
     ulSearch.classList.remove('ulShow');
-    document.getElementById('search').value = "";
+    document.getElementById('search').value = clear ? "" : document.getElementById('search').value;
     document.getElementById('containerInpImg').classList.remove('orderInpImg');
     document.getElementById('btnClose').classList.add('btnCloseHidden');
     document.getElementById('subtitleTrending').classList.remove('hidden');
@@ -282,4 +298,108 @@ function clearSuggest() {
 
 }
 
-document.getElementById('btnClose').addEventListener('click', clearSuggest);
+
+
+function closeFullScreen() {
+    document.getElementById('divFullScreen').innerHTML = "";
+    document.getElementById('divFullScreen').classList.add('hidden');
+    document.getElementById('divFullScreen').classList.remove('styleFullScreen');
+}
+
+function fullScreen(iconFullScreen) {
+
+
+    let idImgFullScreen = iconFullScreen.id;
+    let extractLastDigit = idImgFullScreen.slice(6, idImgFullScreen.length);
+    let imgFullScreenSrc = document.getElementById(`imgGIF${extractLastDigit}`).src;
+
+    let imgClose = document.createElement('img');
+    imgClose.src = '../img/close.svg';
+    imgClose.classList.add('styleClose');
+    imgClose.setAttribute('onclick', 'closeFullScreen()');
+
+
+    /* CONTENEDOR CON IMAGEN Y FLECHAS - SIGUIENTE ANTERIOR *****************************************************/
+
+    let btnBack = document.createElement('img');
+    btnBack.src = '../img/button-left.svg';
+    btnBack.setAttribute('class', 'btnBack');
+
+    let imgFullScreen = document.createElement('img');
+    imgFullScreen.src = imgFullScreenSrc;
+    imgFullScreen.classList.add('styleImgFullScreen');
+    imgFullScreen.setAttribute('id', `imgFullScreen`);
+
+    let btnNext = document.createElement('img');
+    btnNext.src = '../img/button-right.svg';
+    btnNext.setAttribute('class', 'btnNext');
+
+
+    let divImgDirection = document.createElement('div');
+    divImgDirection.classList.add('styleImgDirection');
+
+    divImgDirection.appendChild(btnBack);
+    divImgDirection.appendChild(imgFullScreen);
+    divImgDirection.appendChild(btnNext);
+
+
+
+    /* CONTENEDOR CON TITULOS Y ICONOS *****************************************************/
+    let pUser = document.createElement('p');
+    pUser.innerText = "User";
+
+    let getTitle = document.getElementById(`divGif${extractLastDigit}`);
+    let sendTitle = getTitle.getElementsByClassName('pTitle')[0].innerText;
+
+    let pTitle = document.createElement('p');
+    pTitle.innerText = sendTitle;
+
+    let divText = document.createElement('div');
+    divText.classList.add('styleDivText');
+
+    divText.appendChild(pUser);
+    divText.appendChild(pTitle);
+
+    let imgFavorite = document.createElement('img');
+    imgFavorite.src = "img/icon-fav-hover.svg";
+    imgFavorite.setAttribute('onclick', 'addFavoritesFullScreen(this)');
+    imgFavorite.setAttribute('class', 'icon imgFavorite');
+
+    let imgDownload = document.createElement('img');
+    imgDownload.src = "img/icon-download.svg";
+    imgDownload.setAttribute('onclick', 'downloadFullScreen(this)');
+    imgDownload.setAttribute('class', 'icon imgDownload');
+
+    let divDescription = document.createElement('div');
+    divDescription.classList.add('styleDivDescription');
+
+    divDescription.appendChild(divText);
+    divDescription.appendChild(imgFavorite);
+    divDescription.appendChild(imgDownload);
+
+    /* CONTENEDOR PRINCIPAL *************************************************************/
+    let divFullScreen = document.getElementById('divFullScreen');
+    divFullScreen.classList.add('styleFullScreen');
+    divFullScreen.classList.remove('hidden');
+
+    divFullScreen.appendChild(imgClose);
+    divFullScreen.appendChild(divImgDirection);
+    divFullScreen.appendChild(divDescription);
+    document.querySelector('body').appendChild(divFullScreen);
+
+}
+
+async function download(e) {
+
+    let idImgFullScreen = e.id;
+    let extractLastDigit = idImgFullScreen.slice(6, idImgFullScreen.length);
+    let imgFullScreenSrc = document.getElementById(`imgGIF${extractLastDigit}`).src;
+
+    let a = document.createElement('a');
+    let response = await fetch(imgFullScreenSrc);
+    let file = await response.blob();
+    a.download = e.id;
+    a.href = window.URL.createObjectURL(file);
+    a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
+    a.click();
+}

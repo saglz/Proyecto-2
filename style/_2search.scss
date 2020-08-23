@@ -99,6 +99,65 @@
     align-items: center;
 }
 
+.styleFullScreen {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .styleClose {
+        width: 20px;
+        height: 20px;
+        position: relative;
+        left: 20%;
+    }
+    .styleImgDirection {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+    }
+    .styleDivDescription {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+    }
+    .styleDivText {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-right: 21px;
+        p:nth-child(1) {
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+        p:nth-child(2) {
+            margin-top: 0;
+        }
+    }
+    .imgFavorite,
+    .imgDownload {
+        width: 20px;
+        height: 20px;
+        padding: 9px;
+        border: 1px solid #CED7E1;
+        border-radius: 6px;
+        margin-right: 21px;
+    }
+    .imgFavorite:hover,
+    .imgDownload:hover {
+        opacity: 0.7;
+        background: #c0c0c0;
+        border-radius: 6px;
+    }
+}
+
 @media only screen and (min-width: 376px) {
     .search {
         width: 1440px;
@@ -177,7 +236,6 @@
         }
     }
     .pets {
-        /* display: none; */
         width: 1440px;
         h2 {
             margin: auto;

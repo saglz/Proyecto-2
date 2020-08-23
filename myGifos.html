@@ -4,17 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Proyecto 2</title>
+
     <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/hamburger.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+
 </head>
 
-<body>
+<body onload='loadContentMyGifos()'>
     <div class="edgePage"></div>
     <header>
-        <a href="index.html" class="logo"><img src="img/logo-mobile.svg" alt="logo pagina"></a>
+        <a href="index.html" class="logo"><img src="img/logo-mobile.svg" alt="logo page"></a>
 
         <nav>
             <div class="containerBurger">
@@ -27,38 +28,33 @@
                 <li><a href="myGifos.html">Mis GIFOS</a></li>
             </ul>
         </nav>
-        <a href="createGifos.html" class="hiddenCreateGifos"><img src="img/button-crear-gifo.svg" class="createGifo" alt=""></a>
+        <a href="createGifos.html"> <img src="img/button-crear-gifo.svg" class="createGifo" alt=""></a>
     </header>
-    <main>
 
+    <main>
         <section class="myGifos">
-            <img src="img/icon-mis-gifos.svg" class="iconGifos" alt="image my Gifos">
-            <h2>Mis GIFOS</h2>
-            <div class="imagesGeneral">
-                <img src="https://via.placeholder.com/156x120" alt="image GIF">
-                <img src="https://via.placeholder.com/156x120" alt="image GIF">
-                <img src="https://via.placeholder.com/156x120" alt="image GIF">
-                <img src="https://via.placeholder.com/156x120" alt="image GIF">
-                <img src="https://via.placeholder.com/156x120" alt="image GIF">
-                <img src="https://via.placeholder.com/156x120" alt="image GIF">
-                <img src="https://via.placeholder.com/156x120" alt="image GIF">
-                <img src="https://via.placeholder.com/156x120" alt="image GIF">
-            </div>
-            <div class="buttonGeneral"> <a href=""> Ver más </a> </div>
+            <img class="iconGifos" src="img/icon-mis-gifos.svg" alt="image my Gifos">
+            <h2>Mis Gifos</h2>
+            <div class="imagesGeneral" id="imagesCreateGifos"> </div>
+            <div class="buttonGeneral"> <a href=""> VER MÁS </a> </div>
         </section>
+
 
         <section class="trending iconsHover">
             <h2>Trending GIFOS</h2>
-            <p>Mira los últimos <span>GIFOS de nuestra comunidad.</span></p>
+            <p>Mira los últimos <span> GIFO  de nuestra comunidad.</span></p>
             <div class="containerCarouselTrending">
-                <img class="btnBack" id="btnBack" src="img/button-left.svg" alt="">
+                <img class="btnBack" id='btnBack' src="img/button-left.svg" alt="">
                 <div class="imgTrending" id="sectionTrending">
+                    <!-- Trending imgs -->
                 </div>
-                <img class="btnNext" id="btnNext" src="img/button-right.svg" alt="">
+                <img class="btnNext" id='btnNext' src="img/button-right.svg" alt="">
             </div>
+            <div id="divFullScreen" class="hidden"></div>
         </section>
 
     </main>
+
     <footer>
         <p>Compartir en:</p>
         <div>
@@ -67,12 +63,14 @@
             <a href=""><img src="img/icon_instagram.svg" alt=""></a>
         </div>
         <p>© GIFOS 2020 All Rights Reserved.</p>
+
     </footer>
     <div class="edgePage"></div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/trending.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/myGifos.js"></script>
+    <script src="js/trending.js"></script>
 </body>
 
 </html>

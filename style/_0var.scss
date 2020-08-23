@@ -80,7 +80,6 @@ a {
 
 .iconsHover {
     width: 375px;
-    /* display: none; */
     .containerImg {
         position: relative;
         .icon {
@@ -218,5 +217,17 @@ a {
                 background: #37383C;
             }
         }
+    }
+    .btnBack,
+    .btnNext {
+        display: block;
+        width: 24px;
+        height: 24px;
+        padding: 16px;
+        border: 1px solid #572EE5;
+    }
+    .btnBack:hover,
+    .btnNext:hover {
+        background-color: #572EE5;
     }
 }
