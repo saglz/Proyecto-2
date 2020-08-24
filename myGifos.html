@@ -19,24 +19,31 @@
 
         <nav>
             <div class="containerBurger">
-                <i class="fas fa-bars menu"></i>
-                <!-- <i class="fas fa-times menu"></i> -->
+                <i class="fas fa-bars menu" id="navBar"></i>
             </div>
-            <ul>
+            <ul id="ulNavBar">
                 <li><a href="#" id="theme">Modo Nocturno</a></li>
                 <li><a href="favorites.html">Favoritos</a></li>
                 <li><a href="myGifos.html">Mis GIFOS</a></li>
             </ul>
         </nav>
-        <a href="createGifos.html"> <img src="img/button-crear-gifo.svg" class="createGifo" alt=""></a>
+        <a href="createGifos.html" class="hiddenCreateGifos"> <img src="img/button-crear-gifo.svg" class="createGifo" alt=""></a>
     </header>
 
     <main>
         <section class="myGifos">
             <img class="iconGifos" src="img/icon-mis-gifos.svg" alt="image my Gifos">
             <h2>Mis Gifos</h2>
-            <div class="imagesGeneral" id="imagesCreateGifos"> </div>
-            <div class="buttonGeneral"> <a href=""> VER MÁS </a> </div>
+            <div class="imagesGeneral" id="imagesCreateGifos">
+
+            </div>
+
+            <div id="saveFirstGifo" class="firstMyGifo">
+                <img src="img/icon-mis-gifos-sin-contenido.svg" alt="image Gifos without content">
+                <p>"¡Anímate a crear tu primer GIFO!"</p>
+            </div>
+
+            <div id="buttonGeneral" class="buttonGeneral">VER MÁS</div>
         </section>
 
 
@@ -67,7 +74,6 @@
     </footer>
     <div class="edgePage"></div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="js/index.js"></script>
     <script src="js/myGifos.js"></script>
     <script src="js/trending.js"></script>

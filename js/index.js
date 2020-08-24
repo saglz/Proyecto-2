@@ -1,9 +1,12 @@
+/* Variables Globales */
+const APIKEY = "vcZZ9afZZzKY6qX9q4US8wITbdxp9wPG";
+
 /* Menu hamburguesa */
-$(document).ready(function() {
-    $('.menu').click(function() {
-        $('ul').toggleClass('active');
-    })
-})
+let navBar = document.getElementById('navBar');
+navBar.addEventListener('click', () => {
+    document.getElementById('ulNavBar').classList.toggle('active')
+});
+
 
 /* Cambiar tema Nocturno */
 const btnTheme = document.querySelector('#theme');

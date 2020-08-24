@@ -35,5 +35,22 @@
         .imagesGeneral {
             grid-template-rows: repeat(2, 200px);
         }
+        .firstMyGifo {
+            height: 690px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            p {
+                text-align: center;
+                margin: 0 auto;
+                color: #50e3c2;
+                width: 431px;
+                height: 66px;
+                padding: 24px 0 137px 0;
+                font-family: $fontMonserrat;
+                font-weight: 700;
+            }
+        }
     }
 }

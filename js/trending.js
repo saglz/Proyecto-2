@@ -6,7 +6,6 @@ let arrayTrendingtitle = [];
 let auxExtractLastDigit = 0;
 
 /*  */
-const API_KEY_TRENDING = "vcZZ9afZZzKY6qX9q4US8wITbdxp9wPG";
 document.addEventListener("DOMContentLoaded", initTrending);
 
 
@@ -39,7 +38,7 @@ function backGIF() {
 
 
 function initTrending() {
-    let url = `https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY_TRENDING}&limit=50`;
+    let url = `https://api.giphy.com/v1/gifs/trending?api_key=${APIKEY}&limit=50`;
     console.log(url);
     fetch(url).then(response => response.json()).then(content => {
             console.log(content.data);

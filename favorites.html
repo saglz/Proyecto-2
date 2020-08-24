@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/hamburger.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
 </head>
@@ -18,10 +17,9 @@
 
         <nav>
             <div class="containerBurger">
-                <i class="fas fa-bars menu"></i>
-                <!-- <i class="fas fa-times menu"></i> -->
+                <i class="fas fa-bars menu" id="navBar"></i>
             </div>
-            <ul>
+            <ul id="ulNavBar">
                 <li><a href="#" id="theme">Modo Nocturno</a></li>
                 <li><a href="favorites.html">Favoritos</a></li>
                 <li><a href="myGifos.html">Mis GIFOS</a></li>
@@ -39,7 +37,7 @@
             </div>
 
             <div id="saveFirstGifo" class="saveFirstGifoHidden">
-                <img src="img/icon-mis-gifos-sin-contenido.svg" alt="image Gifos without content">
+                <img src="img/icon-fav-sin-contenido.svg" alt="image Gifos without content">
                 <p>"¡Guarda tu primer GIFO en Favoritos para que se muestre aquí!"</p>
             </div>
 
@@ -71,7 +69,6 @@
     </footer>
     <div class="edgePage"></div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="js/index.js"></script>
     <script src="js/favorites.js"></script>
     <script src="js/trending.js"></script>

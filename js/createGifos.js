@@ -85,8 +85,7 @@ var localCreateGifos = JSON.parse(localStorage.getItem("sendCreateGifos"));
 
 function sendGif(data) {
     const endpoint = "https://upload.giphy.com/v1/gifs";
-    const APIKEY = "uBk483t8qSoUU2toBjTHygcFZhK6OpRr";
-    const username = 'lescobarc';
+    const username = 'Santi-1234';
 
     var formData = new FormData();
     formData.append("api_key", APIKEY);

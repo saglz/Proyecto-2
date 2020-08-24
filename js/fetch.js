@@ -3,7 +3,6 @@ let countSeeMore = 12;
 let countID = 0;
 let auxExtractLastDigitSearch = 0;
 
-const APIKEY = "vcZZ9afZZzKY6qX9q4US8wITbdxp9wPG";
 
 /* Even Listener     */
 document.getElementById("btnSearch").addEventListener("click", init);
