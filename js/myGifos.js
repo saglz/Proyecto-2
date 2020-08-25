@@ -20,6 +20,7 @@ function loadContentMyGifos() {
         btnGeneral.classList.remove('hidden');
 
         divSaveFirstGifo.classList.add('hidden');
+        divSaveFirstGifo.classList.remove('firstMyGifo');
     } else {
         divImagesCreateGifos.classList.add('hidden');
         divImagesCreateGifos.classList.remove('imagesGeneral');

@@ -148,8 +148,16 @@ a {
     }
 }
 
+.active {
+    background: #572EE5;
+    color: #ffffff !important;
+}
+
 .changeTheme {
     background: #37383C;
+    .active {
+        background: #000000;
+    }
     .trending {
         background: #222326;
     }
@@ -280,5 +288,14 @@ a {
     .btnBack:hover,
     .btnNext:hover {
         background: #572EE5;
+    }
+    .active {
+        background: #FFFFFF;
+        color: #572EE5;
+    }
+    .changeTheme {
+        .active {
+            background: #37383C;
+        }
     }
 }

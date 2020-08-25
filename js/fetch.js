@@ -407,24 +407,3 @@ function backOrNextGif() {
     }
 
 }
-
-//Autocomplete
-
-/* document.getElementById('search').addEventListener('keyup', autocomplete);
-function autocomplete (){
-let keyword = document.getElementById('search').value;
-let input = document.getElementById('search');
-    if(keyword){
-    const endpointAutocomplete = `https://api.giphy.com/v1/gifs/search/tags?api_key=${APIKEY}&q=${keyword}`; 
-    const endpointAutocomplete = `https://api.giphy.com/v1/gifs/search/tags?api_key=vcZZ9afZZzKY6qX9q4US8wITbdxp9wPG&q=l`; 
-    fetch(endpointAutocomplete)
-        .then(response => response.json())
-        .then(data => {
-                input.innerText = data.data[0].name;
-                input.setAttribute('onclick', 'autocompleteInput(this)' )  
-        });
-    }else{
-    }
-}
- function autocompleteInput() {
-} */

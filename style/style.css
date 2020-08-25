@@ -163,8 +163,17 @@ a {
   text-align: left;
 }
 
+.active {
+  background: #572EE5;
+  color: #ffffff !important;
+}
+
 .changeTheme {
   background: #37383C;
+}
+
+.changeTheme .active {
+  background: #000000;
 }
 
 .changeTheme .trending {
@@ -307,6 +316,13 @@ a {
   .btnNext:hover {
     background: #572EE5;
   }
+  .active {
+    background: #FFFFFF;
+    color: #572EE5;
+  }
+  .changeTheme .active {
+    background: #37383C;
+  }
 }
 
 body {
@@ -340,7 +356,7 @@ nav .containerBurger {
 nav ul {
   position: absolute;
   left: 0;
-  width: 100%;
+  width: 375px;
   height: 100vh;
   margin: 0 auto;
   padding: 0;
@@ -361,8 +377,16 @@ nav ul li a {
   font-weight: 700;
 }
 
-nav ul li:hover {
-  background: #b9e4e1;
+nav ul li a:hover {
+  -webkit-text-decoration: underline #5ED7C6;
+          text-decoration: underline #5ED7C6;
+  -webkit-text-decoration-style: solid;
+          text-decoration-style: solid;
+}
+
+nav ul li a:active {
+  color: #9CAFC3;
+  text-decoration: none;
 }
 
 .active {
@@ -377,7 +401,7 @@ nav ul li:hover {
   display: none;
 }
 
-@media (min-width: 376px) {
+@media only screen and (min-width: 376px) {
   header {
     width: 1440px;
     height: 90px;
@@ -400,6 +424,7 @@ nav ul li:hover {
     height: auto;
     display: inline-block;
     background: unset;
+    width: 100%;
   }
   nav ul li {
     list-style: none;
@@ -410,9 +435,7 @@ nav ul li:hover {
     font-size: 13px;
     color: #572EE5;
     font-weight: 700;
-  }
-  nav ul li:hover {
-    background: #b9e4e1;
+    line-height: 0px;
   }
   .hiddenCreateGifos {
     display: block;
@@ -1195,11 +1218,6 @@ nav ul li:hover {
   width: 480px;
   height: 320px;
   margin: 0 auto;
-}
-
-.active {
-  background: #572EE5 !important;
-  color: #ffffff !important;
 }
 
 footer {

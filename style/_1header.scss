@@ -22,7 +22,7 @@ nav {
     ul {
         position: absolute;
         left: 0;
-        width: 100%;
+        width: 375px;
         height: 100vh;
         margin: 0 auto;
         padding: 0;
@@ -37,10 +37,15 @@ nav {
                 color: #ffffff;
                 font-size: 15px;
                 font-weight: 700;
+                &:hover {
+                    text-decoration: underline #5ED7C6;
+                    text-decoration-style: solid;
+                }
+                &:active {
+                    color: #9CAFC3;
+                    text-decoration: none;
+                }
             }
-        }
-        li:hover {
-            background: rgb(185, 228, 225);
         }
     }
 }
@@ -57,7 +62,7 @@ nav {
     display: none;
 }
 
-@media (min-width:376px) {
+@media only screen and (min-width:376px) {
     header {
         width: 1440px;
         height: 90px;
@@ -77,6 +82,7 @@ nav {
             height: auto;
             display: inline-block;
             background: unset;
+            width: 100%;
             li {
                 list-style: none;
                 display: inline-block;
@@ -85,10 +91,8 @@ nav {
                     font-size: 13px;
                     color: #572EE5;
                     font-weight: 700;
+                    line-height: 0px;
                 }
-            }
-            li:hover {
-                background: rgb(185, 228, 225);
             }
         }
     }
