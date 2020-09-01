@@ -2,7 +2,7 @@
 let countSeeMore = 12;
 let countID = 0;
 let auxExtractLastDigitSearch = 0;
-
+let arrayImagesOriginal = [];
 
 /* Even Listener     */
 document.getElementById("btnSearch").addEventListener("click", init);
@@ -210,7 +210,7 @@ function suggestSearch() {
 
     let keyword = document.getElementById('search').value;
     if (keyword) {
-        /* const endpoint = `https://api.giphy.com/v1/tags/related/${keyword}?api_key=${APIKEY}`; */
+
         const endpoint = `https://api.giphy.com/v1/gifs/search/tags?api_key=${APIKEY}&q=${keyword}`;
         fetch(endpoint)
             .then(response => response.json())
@@ -227,8 +227,8 @@ function suggestSearch() {
                     ulSearch.appendChild(li);
                 }
 
-            });
-
+            })
+            .catch(e => { console.log('Sugerencia no existe') });
         document.getElementById('btnClose').classList.remove('btnCloseHidden');
 
         let containerInpImg = document.getElementById('containerInpImg');
@@ -237,6 +237,7 @@ function suggestSearch() {
         document.getElementById('subtitleTrending').classList.add('hidden');
         document.getElementById('descriptionTrending').classList.add('hidden');
 
+        document.getElementById('sectionMain').classList.add('hiddenTitleImg');
     } else {
         clearSuggest();
     }
@@ -261,6 +262,8 @@ function clearSuggest(clear = true) {
     document.getElementById('descriptionTrending').classList.remove('hidden');
     document.getElementById('noFound').classList.add('hidden');
     document.getElementById('noFound').classList.remove('styleNoFound');
+    document.getElementById('sectionMain').classList.remove('hiddenTitleImg');
+    document.getElementById('sectionSearch').classList.add('hidden');
 
 }
 

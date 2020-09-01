@@ -389,6 +389,25 @@ nav ul li a:active {
   text-decoration: none;
 }
 
+nav ul li:nth-child(1)::after,
+nav ul li:nth-child(2)::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 41px;
+  background: gray;
+  position: absolute;
+  left: 167px;
+}
+
+nav ul li:nth-child(1)::after {
+  top: 115px;
+}
+
+nav ul li:nth-child(2)::after {
+  top: 240px;
+}
+
 .active {
   display: block;
 }
@@ -436,6 +455,10 @@ nav ul li a:active {
     color: #572EE5;
     font-weight: 700;
     line-height: 0px;
+  }
+  nav ul li:nth-child(1)::after,
+  nav ul li:nth-child(2)::after {
+    display: none;
   }
   .hiddenCreateGifos {
     display: block;
@@ -595,6 +618,19 @@ nav ul li a:active {
   white-space: pre;
 }
 
+.orderInpImg #btnSearch {
+  display: none;
+}
+
+.hiddenTitleImg {
+  height: 100px;
+}
+
+.hiddenTitleImg #familySearch,
+.hiddenTitleImg #titleSearch {
+  display: none;
+}
+
 .styleNoFound {
   width: 1440px;
   height: 576px;
@@ -632,6 +668,7 @@ nav ul li a:active {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  z-index: 11;
 }
 
 .styleFullScreen .styleClose {
@@ -778,6 +815,7 @@ nav ul li a:active {
     width: 460px;
   }
   .search .contentSearch .buttonSearch .orderInpImg #btnSearch {
+    display: block;
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
@@ -808,6 +846,13 @@ nav ul li a:active {
     margin: auto;
     width: 550px;
     height: 30px;
+  }
+  .hiddenTitleImg {
+    height: auto;
+  }
+  .hiddenTitleImg #familySearch,
+  .hiddenTitleImg #titleSearch {
+    display: block;
   }
 }
 
@@ -863,24 +908,25 @@ nav ul li a:active {
 }
 
 @media only screen and (min-width: 376px) {
-  main .favorites {
+  /* main { */
+  .favorites {
     width: 1440px;
     height: 981px;
   }
-  main .favorites h2 {
+  .favorites h2 {
     width: 549px;
     height: 30px;
     margin: 0 auto;
     font-size: 25px;
   }
-  main .favorites .iconFavorites {
+  .favorites .iconFavorites {
     text-align: center;
     margin: 0 auto;
   }
-  main .favorites .buttonGeneral {
+  .favorites .buttonGeneral {
     margin: 78px 656px 79px 657px;
   }
-  main .favorites p {
+  .favorites p {
     text-align: center;
     margin: 0 auto;
     color: #50e3c2;
@@ -890,6 +936,7 @@ nav ul li a:active {
     font-weight: 700;
     font-family: "Montserrat", sans-serif;
   }
+  /* } */
 }
 
 .myGifos {
@@ -1020,9 +1067,27 @@ nav ul li a:active {
   height: 187px;
 }
 
+.trending .containerCarouselTrending {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .trending .btnBack,
 .trending .btnNext {
-  display: none;
+  display: block;
+  position: absolute;
+  height: 187px;
+  z-index: 1;
+  opacity: 0;
+}
+
+.trending .btnBack {
+  left: 0px;
+}
+
+.trending .btnNext {
+  right: 0px;
 }
 
 @media only screen and (min-width: 376px) {
@@ -1082,6 +1147,8 @@ nav ul li a:active {
     height: 24px;
     padding: 16px;
     border: 1px solid #572EE5;
+    opacity: 1;
+    position: unset;
   }
   .trending .containerCarouselTrending .btnBack:hover,
   .trending .containerCarouselTrending .btnNext:hover {

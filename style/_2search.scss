@@ -90,6 +90,20 @@
     }
 }
 
+.orderInpImg {
+    #btnSearch {
+        display: none;
+    }
+}
+
+.hiddenTitleImg {
+    height: 100px;
+    #familySearch,
+    #titleSearch {
+        display: none;
+    }
+}
+
 .styleNoFound {
     width: 1440px;
     height: 576px;
@@ -110,6 +124,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    z-index: 11;
     .styleClose {
         width: 20px;
         height: 20px;
@@ -212,6 +227,7 @@
                         width: 460px;
                     }
                     #btnSearch {
+                        display: block;
                         order: 1;
                     }
                     #btnClose {
@@ -241,6 +257,13 @@
             margin: auto;
             width: 550px;
             height: 30px;
+        }
+    }
+    .hiddenTitleImg {
+        height: auto;
+        #familySearch,
+        #titleSearch {
+            display: block;
         }
     }
 }

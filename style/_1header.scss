@@ -47,6 +47,22 @@ nav {
                 }
             }
         }
+        li:nth-child(1)::after,
+        li:nth-child(2)::after {
+            content: '';
+            display: block;
+            height: 2px;
+            width: 41px;
+            background: gray;
+            position: absolute;
+            left: 167px;
+        }
+        li:nth-child(1)::after {
+            top: 115px;
+        }
+        li:nth-child(2)::after {
+            top: 240px;
+        }
     }
 }
 
@@ -93,6 +109,10 @@ nav {
                     font-weight: 700;
                     line-height: 0px;
                 }
+            }
+            li:nth-child(1)::after,
+            li:nth-child(2)::after {
+                display: none;
             }
         }
     }

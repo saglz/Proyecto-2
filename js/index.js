@@ -4,7 +4,18 @@ const APIKEY = "vcZZ9afZZzKY6qX9q4US8wITbdxp9wPG";
 /* Menu hamburguesa */
 let navBar = document.getElementById('navBar');
 navBar.addEventListener('click', () => {
-    document.getElementById('ulNavBar').classList.toggle('active')
+
+    navBarClose.classList.remove('hidden');
+    navBar.classList.add('hidden');
+    document.getElementById('ulNavBar').classList.toggle('active');
+});
+
+let navBarClose = document.getElementById('navBarClose');
+navBarClose.addEventListener('click', () => {
+
+    navBarClose.classList.add('hidden');
+    navBar.classList.remove('hidden');
+    document.getElementById('ulNavBar').classList.toggle('active');
 });
 
 
