@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Proyecto 2 - My GIFOS</title>
-
+    <title>My Gifos</title>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 
@@ -15,12 +13,11 @@
 <body onload='loadContentMyGifos()'>
     <div class="edgePage"></div>
     <header>
-        <a href="index.html" class="logo"><img src="img/logo-mobile.svg" alt="logo page"></a>
-
+        <a href="index.html" class="logo"><img id="logo" src="img/logo-desktop.svg" alt="logo page"></a>
         <nav>
             <div class="containerBurger">
-                <img src="img/burger.svg" class="menu" id="navBar" alt="Image menu burger">
-                <img src="img/button-close.svg" class="hidden" id="navBarClose" alt="Image button close">
+                <img src="img/burger.svg" class="menu" id="navBar" alt="Image burguer menu">
+                <img src="img/button-close.svg" class="hidden" id="navBarClose" alt="Image close menu">
             </div>
             <ul id="ulNavBar">
                 <li><a href="#" id="theme">Modo Nocturno</a></li>
@@ -28,35 +25,38 @@
                 <li><a href="myGifos.html">Mis GIFOS</a></li>
             </ul>
         </nav>
-        <a href="createGifos.html" class="hiddenCreateGifos"><img src="img/button-crear-gifo.svg" class="createGifo" alt="Image create gifos"></a>
+        <a href="createGifos.html" class="hiddenCreateGifos"> <img src="img/button-crear-gifo.svg" class="createGifo" alt="Image create gifos"></a>
     </header>
 
     <main>
         <section class="myGifos">
             <img class="iconGifos" src="img/icon-mis-gifos.svg" alt="image my Gifos">
             <h2>Mis Gifos</h2>
-            <div class="imagesGeneral" id="imagesCreateGifos">
+            <div class="imagesGeneral iconsHover" id="imagesCreateGifos">
 
             </div>
 
+            <!-- Si no hay Imágenes -->
             <div id="saveFirstGifo" class="firstMyGifo">
                 <img src="img/icon-mis-gifos-sin-contenido.svg" alt="image Gifos without content">
-                <p>"¡Anímate a crear tu primer GIFO!"</p>
+                <p>¡Anímate a crear tu primer GIFO!</p>
             </div>
 
-            <div id="buttonGeneral" class="buttonGeneral">VER MÁS</div>
+
+            <div class="buttonGeneral" id="buttonGeneral"> VER MÁS </div>
         </section>
+
 
 
         <section class="trending iconsHover">
             <h2>Trending GIFOS</h2>
             <p>Mira los últimos <span> GIFO  de nuestra comunidad.</span></p>
             <div class="containerCarouselTrending">
-                <img class="btnBack" id='btnBack' src="img/button-left.svg" alt="Image button back">
+                <img class="btnBack" id='btnBack' src="img/button-left.svg" alt="Image back button">
                 <div class="imgTrending" id="sectionTrending">
                     <!-- Trending imgs -->
                 </div>
-                <img class="btnNext" id='btnNext' src="img/button-right.svg" alt="Image button next">
+                <img class="btnNext" id='btnNext' src="img/button-right.svg" alt="Image next button">
             </div>
             <div id="divFullScreen" class="hidden"></div>
         </section>
@@ -66,18 +66,19 @@
     <footer>
         <p>Compartir en:</p>
         <div>
-            <a href="https://www.facebook.com/" target="_blank"><img src="img/icon_facebook.svg" alt="Image icon facebook"></a>
-            <a href="https://twitter.com/" target="_blank"><img src="img/icon-twitter.svg" alt="Image icon twitter"></a>
-            <a href="https://www.instagram.com/" target="_blank"><img src="img/icon_instagram.svg" alt="Image icon instagram"></a>
+            <a href="https://es-la.facebook.com/" target="_blank"><img src="img/icon_facebook.svg" alt="Icon Facebook"></a>
+            <a href="https://twitter.com/" target="_blank"><img src="img/icon-twitter.svg" alt="Icon Twitter"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="img/icon_instagram.svg" alt="Icon Instagram"></a>
         </div>
         <p>© GIFOS 2020 All Rights Reserved.</p>
 
     </footer>
     <div class="edgePage"></div>
 
+
     <script src="js/index.js"></script>
-    <script src="js/myGifos.js"></script>
     <script src="js/trending.js"></script>
+    <script src="js/myGifos.js"></script>
 </body>
 
 </html>

@@ -27,13 +27,49 @@ btnTheme.addEventListener('click', () => {
     if (btnTheme.innerText == "Modo Nocturno") {
         btnTheme.innerText = "Modo Diurno";
         modeTheme = 1;
+        /* debugger */
+        ImgDarkTheme();
     } else {
         btnTheme.innerText = "Modo Nocturno";
         modeTheme = 0;
+        ImgLightTheme();
     }
     /* Enviar información del cambio de modo */
     localStorage.setItem('sendTheme', JSON.stringify(modeTheme));
 });
+
+let logo = document.getElementById('logo');
+let burger = document.getElementById('navBar');
+let closeNav = document.getElementById('navBarClose');
+let camara = document.getElementById('camara');
+let movie = document.getElementById('movie');
+let btnSearch = document.getElementById('imgBtnSearch');
+
+function ImgDarkTheme() {
+    logo.src = "/img/Logo-modo-noc.svg";
+    burger.src = "/img/burger-modo-noct.svg";
+    closeNav.src = "/img/close-modo-noct.svg";
+    if (camara != null && movie != null) {
+        camara.src = "/img/camara-modo-noc.svg";
+        movie.src = "/img/pelicula-modo-noc.svg";
+    }
+    if (btnSearch != null) {
+        btnSearch.src = "/img/icon-search-mod-noc.svg"
+    }
+}
+
+function ImgLightTheme() {
+    logo.src = "/img/logo-desktop.svg";
+    burger.src = "/img/burger.svg";
+    closeNav.src = "/img/button-close.svg";
+    if (camara != null && movie != null) {
+        camara.src = "/img/camara.svg";
+        movie.src = "/img/pelicula.svg";
+    }
+    if (btnSearch != null) {
+        btnSearch.src = "/img/icon-search.svg"
+    }
+}
 
 /* Traer información del modo actual */
 var modeThemeResponse = JSON.parse(localStorage.getItem("sendTheme"));

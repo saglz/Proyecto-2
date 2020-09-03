@@ -5,13 +5,17 @@ let arrayTrendingSrc = [];
 let arrayTrendingtitle = [];
 let auxExtractLastDigit = 0;
 
-/*  */
+
 document.addEventListener("DOMContentLoaded", initTrending);
 
 
 /* Botones siguiente y atras trending */
 document.getElementById("btnNext").addEventListener('click', nextGIF);
 document.getElementById("btnBack").addEventListener('click', backGIF);
+/* Botones siguiente y atras Full Screen trending */
+/* document.getElementById("btnNextTreding").addEventListener('click', nextGIF);
+document.getElementById("btnBackTrending").addEventListener('click', backGIF); */
+
 
 function nextGIF() {
     if (countStartTrending < 47 && countEndTrending < 50) {
@@ -170,7 +174,7 @@ function fullSize(iconFullScreen) {
     imgClose.setAttribute('onclick', 'closeFullScreenTrending()');
 
 
-    /* CONTENEDOR CON IMAGEN Y FLECHAS - SIGUIENTE ANTERIOR *****************************************************/
+    /* CONTENEDOR CON IMAGEN Y FLECHAS - SIGUIENTE ANTERIOR *******/
 
     let btnBack = document.createElement('img');
     btnBack.src = '../img/button-left.svg';
@@ -197,7 +201,7 @@ function fullSize(iconFullScreen) {
 
 
 
-    /* CONTENEDOR CON TITULOS Y ICONOS *****************************************************/
+    /* CONTENEDOR CON TITULOS Y ICONOS *******/
     let pUser = document.createElement('p');
     pUser.innerText = "User";
 
@@ -231,7 +235,7 @@ function fullSize(iconFullScreen) {
     divDescription.appendChild(imgFavorite);
     divDescription.appendChild(imgDownload);
 
-    /* CONTENEDOR PRINCIPAL *************************************************************/
+    /* CONTENEDOR PRINCIPAL *******/
     let divFullScreen = document.getElementById('divFullScreen');
     divFullScreen.classList.add('styleFullScreen');
     divFullScreen.classList.remove('hidden');
