@@ -24,25 +24,24 @@ function loadContentMyGifos(data) {
             pUser.innerText = "User";
             pUser.setAttribute('class', 'pUser');
             let pTitle = document.createElement('p');
-            /* pTitle.innerText = content.data[i].title; */
             pTitle.innerText = 'Titulo';
             pTitle.setAttribute('class', 'pTitle');
 
             let imgFavorite = document.createElement('img');
             imgFavorite.setAttribute('id', `imgFav${i}`);
-            imgFavorite.src = "img/icon_trash.svg";
+            imgFavorite.src = "./img/icon_trash.svg";
             imgFavorite.setAttribute('onclick', 'removeMyGifos(this)');
             imgFavorite.setAttribute('class', 'icon imgFavorite');
 
             let imgDownload = document.createElement('img');
             imgDownload.setAttribute('id', `imgDow${i}`);
-            imgDownload.src = "img/icon-download.svg";
+            imgDownload.src = "./img/icon-download.svg";
             imgDownload.setAttribute('onclick', 'download(this)');
             imgDownload.setAttribute('class', 'icon imgDownload');
 
             let imgFullSize = document.createElement('img');
             imgFullSize.setAttribute('id', `imgFul${i}`);
-            imgFullSize.src = "img/icon-max.svg";
+            imgFullSize.src = "./img/icon-max.svg";
             imgFullSize.setAttribute('onclick', 'fullScreen(this)');
             imgFullSize.setAttribute('class', 'icon imgFullSize');
 
@@ -129,7 +128,7 @@ function fullScreen(iconFullScreen) {
     removeFavFullScreen = extractLastDigit;
 
     let imgClose = document.createElement('img');
-    imgClose.src = '../img/close.svg';
+    imgClose.src = './img/close.svg';
     imgClose.classList.add('styleClose');
     imgClose.setAttribute('onclick', 'closeFullScreen()');
 
@@ -166,12 +165,12 @@ function fullScreen(iconFullScreen) {
     divText.appendChild(pTitle);
 
     let imgFavorite = document.createElement('img');
-    imgFavorite.src = "img/icon_trash.svg";
+    imgFavorite.src = "./img/icon_trash.svg";
     imgFavorite.setAttribute('onclick', 'removeMyGifosFullScreen(this)');
     imgFavorite.setAttribute('class', 'icon imgFavorite');
 
     let imgDownload = document.createElement('img');
-    imgDownload.src = "img/icon-download.svg";
+    imgDownload.src = "./img/icon-download.svg";
     imgDownload.setAttribute('onclick', 'downloadFullScreen(this)');
     imgDownload.setAttribute('class', 'icon imgDownload');
 
