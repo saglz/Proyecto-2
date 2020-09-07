@@ -3,17 +3,22 @@ let divSaveFirstGifo = document.getElementById('saveFirstGifo');
 let btnGeneral = document.getElementById('buttonGeneral');
 let removeFavFullScreen;
 
+let url = `https://api.giphy.com/v1/gifs?api_key=${APIKEY}&ids=${localStorage.getItem('sendCreateGifos')}`;
+fetch(url).then(result => result.json().then(data => loadContentMyGifos(data))).catch(err => { console.error(err) });
 
-var arrCreate = JSON.parse(localStorage.getItem('sendCreateGifos'));
-console.log(arrCreate);
 
-function loadContentMyGifos() {
-    if (arrCreate != null && arrCreate != "") {
+function loadContentMyGifos(data) {
 
-        for (var i = 0; i < arrCreate.length; i++) {
+    if (data != null && data != "" && data.data != 0) {
+
+        let gifs = data.data;
+        console.log(gifs)
+        for (var i = 0; i < gifs.length; i++) {
             let img = document.createElement('img');
             img.setAttribute('id', `imgGIF${i}`);
-            img.src = arrCreate[i];
+            img.setAttribute('data-id', data.data[i].id);
+            img.src = gifs[i].images.original.url;
+            img.alt = data.data[i].title;
 
             let pUser = document.createElement('p');
             pUser.innerText = "User";
@@ -78,18 +83,22 @@ function noHaveContentMyGifos() {
     btnGeneral.classList.add('hidden');
 
     divSaveFirstGifo.classList.remove('hidden');
-    console.log('Mis Gifos no tiene videos');
 }
 
 
 function removeMyGifos(imageMyGifos) {
+    debugger
+    let idImgFullScreen = imageMyGifos.id;
+    let extractLastDigit = idImgFullScreen.slice(6, idImgFullScreen.length);
+    let idErrase = document.getElementById(`imgGIF${extractLastDigit}`);
 
-    let idImgHtml = imageMyGifos.id;
-    let extractLastDigit = idImgHtml.slice(6, idImgHtml.length);
+    let ids = localStorage.getItem('sendCreateGifos').split(',');
 
-    arrCreate.splice(extractLastDigit, 1);
-    localStorage.removeItem('sendCreateGifos');
-    localStorage.setItem('sendCreateGifos', JSON.stringify(arrCreate));
+    let pos = ids.indexOf(idErrase.dataset.id);
+    console.log(pos)
+    if (pos < 0) return;
+    ids.splice(pos, 1);
+    localStorage.setItem('sendCreateGifos', ids);
     location.reload();
 
 }
@@ -99,7 +108,6 @@ async function download(imageMyGifos) {
     let idImgHtml = imageMyGifos.id;
     let extractLastDigit = idImgHtml.slice(6, idImgHtml.length);
     let tagGIF = document.getElementById(`imgGIF${extractLastDigit}`).src;
-    console.log(tagGIF);
 
     let a = document.createElement('a');
     let response = await fetch(tagGIF);
@@ -159,7 +167,7 @@ function fullScreen(iconFullScreen) {
 
     let imgFavorite = document.createElement('img');
     imgFavorite.src = "img/icon_trash.svg";
-    imgFavorite.setAttribute('onclick', 'removeMyGifosFullScreen()');
+    imgFavorite.setAttribute('onclick', 'removeMyGifosFullScreen(this)');
     imgFavorite.setAttribute('class', 'icon imgFavorite');
 
     let imgDownload = document.createElement('img');
@@ -194,9 +202,15 @@ function closeFullScreen() {
 
 function removeMyGifosFullScreen() {
 
-    arrCreate.splice(removeFavFullScreen, 1);
-    localStorage.removeItem('sendCreateGifos');
-    localStorage.setItem('sendCreateGifos', JSON.stringify(arrCreate));
+    let idErrase = document.getElementById(`imgGIF${removeFavFullScreen}`);
+
+    let ids = localStorage.getItem('sendCreateGifos').split(',');
+
+    let pos = ids.indexOf(idErrase.dataset.id);
+    console.log(pos)
+    if (pos < 0) return;
+    ids.splice(pos, 1);
+    localStorage.setItem('sendCreateGifos', ids);
     location.reload();
 
 }

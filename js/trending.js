@@ -43,29 +43,21 @@ function backGIF() {
 
 function initTrending() {
     let url = `https://api.giphy.com/v1/gifs/trending?api_key=${APIKEY}&limit=50`;
-    console.log(url);
     fetch(url).then(response => response.json()).then(content => {
-            console.log(content.data);
-            console.log("Hola la cantidad de elementos es " + content.data.length);
             for (var i = 0; i < 50; i++) {
                 arrayTrendingSrc.push(content.data[i].images.original.url);
                 arrayTrendingtitle.push(content.data[i].title);
             }
-            /* console.log(arrayTrendingSrc);
-            console.log(arrayTrendingtitle); */
             createImgTrending();
         })
         .catch(err => {
             console.error(err);
         });
-
-
 }
 
 function createImgTrending() {
     if (arrayTrendingSrc != "" && arrayTrendingtitle != "") {
         try {
-            console.log(`Inicia en ${countStartTrending} finaliza en ${countEndTrending}`)
             for (var i = countStartTrending; i < countEndTrending; i++) {
                 /* Crear imagen con GIF */
                 let img = document.createElement('img');
@@ -121,14 +113,13 @@ function createImgTrending() {
             console.log(error);
         }
     } else {
-        alert('No hay GIF para la palabra buscada: ' + document.getElementById('search').value);
+        console.log('No hay GIF para la palabra buscada: ' + document.getElementById('search').value);
     }
 }
 
 var arrayFavorites = [];
 
 var arrFav = JSON.parse(localStorage.getItem("sendFavorites"));
-console.log(arrFav);
 if (arrFav != null) {
     arrayFavorites = arrFav;
 }
@@ -140,7 +131,6 @@ function addFavoritesTrending(iconFavorite) {
     let extractLastDigit = idImgHtml.slice(7, idImgHtml.length);
     let tagGif = document.getElementById(`imgTren${extractLastDigit}`);
     arrayFavorites.push(tagGif.src);
-    console.log(arrayFavorites);
     localStorage.setItem('sendFavorites', JSON.stringify(arrayFavorites));
     location.reload();
 }

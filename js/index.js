@@ -18,19 +18,18 @@ navBarClose.addEventListener('click', () => {
     document.getElementById('ulNavBar').classList.toggle('active');
 });
 
-
 /* Cambiar tema Nocturno */
 const btnTheme = document.querySelector('#theme');
 var modeTheme = 0;
 btnTheme.addEventListener('click', () => {
     document.body.classList.toggle('changeTheme');
-    if (btnTheme.innerText == "Modo Nocturno") {
-        btnTheme.innerText = "Modo Diurno";
+    if (btnTheme.innerText == "MODO NOCTURNO") {
+        btnTheme.innerText = "MODO DIURNO";
         modeTheme = 1;
         /* debugger */
         ImgDarkTheme();
     } else {
-        btnTheme.innerText = "Modo Nocturno";
+        btnTheme.innerText = "MODO NOCTURNO";
         modeTheme = 0;
         ImgLightTheme();
     }
@@ -44,6 +43,7 @@ let closeNav = document.getElementById('navBarClose');
 let camara = document.getElementById('camara');
 let movie = document.getElementById('movie');
 let btnSearch = document.getElementById('imgBtnSearch');
+let imgCloseSearch = document.getElementById('imgCloseSearch');
 
 function ImgDarkTheme() {
     logo.src = "/img/Logo-modo-noc.svg";
@@ -54,7 +54,8 @@ function ImgDarkTheme() {
         movie.src = "/img/pelicula-modo-noc.svg";
     }
     if (btnSearch != null) {
-        btnSearch.src = "/img/icon-search-mod-noc.svg"
+        btnSearch.src = "/img/icon-search-mod-noc.svg";
+        imgCloseSearch.src = "/img/close-modo-noct.svg";
     }
 }
 
@@ -67,7 +68,8 @@ function ImgLightTheme() {
         movie.src = "/img/pelicula.svg";
     }
     if (btnSearch != null) {
-        btnSearch.src = "/img/icon-search.svg"
+        btnSearch.src = "/img/icon-search.svg";
+        imgCloseSearch.src = "/img/button-close.svg";
     }
 }
 
@@ -76,7 +78,10 @@ var modeThemeResponse = JSON.parse(localStorage.getItem("sendTheme"));
 
 if (modeThemeResponse == 1) {
     document.body.classList.toggle('changeTheme');
-    btnTheme.innerText = "Modo Diurno";
+    btnTheme.innerText = "MODO DIURNO";
+    ImgDarkTheme();
+} else {
+    ImgLightTheme();
 }
 
 
@@ -84,7 +89,6 @@ if (modeThemeResponse == 1) {
 async function downloadFullScreen(e) {
 
     let imgFullScreen = document.getElementById('imgFullScreen').src;
-    console.log(imgFullScreen);
 
     let a = document.createElement('a');
     let response = await fetch(imgFullScreen);
@@ -98,7 +102,6 @@ async function downloadFullScreen(e) {
 var arrayFavorites = [];
 
 var arrFav = JSON.parse(localStorage.getItem("sendFavorites"));
-console.log(arrFav);
 if (arrFav != null) {
     arrayFavorites = arrFav;
 }
@@ -106,9 +109,7 @@ if (arrFav != null) {
 function addFavoritesFullScreen(iconFavorite) {
 
     let imgFullScreen = document.getElementById('imgFullScreen').src;
-    console.log(imgFullScreen);
 
     arrayFavorites.push(imgFullScreen);
-    console.log(arrayFavorites);
     localStorage.setItem('sendFavorites', JSON.stringify(arrayFavorites));
 }

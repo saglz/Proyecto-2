@@ -5,9 +5,9 @@ var video = document.querySelector('video');
 
 //Boton COMENZAR, GRABAR, FINALIZAR, SUBIR GIFO
 function btnActive() {
-    document.getElementById('btnAllowCam').classList.remove('active');
-    document.getElementById('btnRecordCam').classList.remove('active');
-    document.getElementById('btnUploadCam').classList.remove('active');
+    document.getElementById('btnAllowCam').classList.remove('activeNum');
+    document.getElementById('btnRecordCam').classList.remove('activeNum');
+    document.getElementById('btnUploadCam').classList.remove('activeNum');
 }
 
 //Inicializar cámara
@@ -52,27 +52,18 @@ function startRecordingFn(stream) {
 }
 
 
-arrayCreateGifos = [];
-var arrCreate = JSON.parse(localStorage.getItem("sendCreateGifos"));
-console.log(arrCreate);
+/* arrayCreateGifos = []; */
+/* var arrCreate = JSON.parse(localStorage.getItem("sendCreateGifos")); */
 
-if (arrCreate != null) {
+/* if (arrCreate != null) {
     arrayCreateGifos = arrCreate;
-}
+} */
 
 function stopRecordingFn() {
     recorder.stopRecording(function() {
         console.log(URL.createObjectURL(this.blob));
 
-        var reader = new FileReader();
-        reader.readAsDataURL(recorder.getBlob());
-        reader.onloadend = function() {
-            var base64data = reader.result;
-            console.log(base64data);
-            data64 = base64data;
-            arrayCreateGifos.push(base64data);
-            localStorage.setItem('sendCreateGifos', JSON.stringify(arrayCreateGifos));
-        }
+        data64 = recorder.getBlob();
     });
 
 
@@ -80,20 +71,28 @@ function stopRecordingFn() {
 }
 
 
-var localCreateGifos = JSON.parse(localStorage.getItem("sendCreateGifos"));
+/* var localCreateGifos = JSON.parse(localStorage.getItem("sendCreateGifos")); */
 
 
-function sendGif(data) {
+async function sendGif(data) {
     const endpoint = "https://upload.giphy.com/v1/gifs";
     const username = 'Santi-1234';
 
     var formData = new FormData();
     formData.append("api_key", APIKEY);
     formData.append("username", username);
-    formData.append("file", data);
-    let request = new XMLHttpRequest();
-    request.open("POST", endpoint);
-    request.send(formData);
+    formData.append("file", data, 'misGif.gif');
+
+    let res = await fetch(endpoint, {
+        method: 'POST',
+        body: formData
+    });
+    let gifResult = await res.json();
+    console.log(gifResult);
+
+    let ids = localStorage.getItem('sendCreateGifos') != null ? localStorage.getItem('sendCreateGifos').split(',') : [];
+    ids.push(gifResult.data.id);
+    localStorage.setItem('sendCreateGifos', ids);
 }
 
 document.getElementById('btnStart').addEventListener("click", function() {
@@ -103,7 +102,7 @@ document.getElementById('btnStart').addEventListener("click", function() {
         document.querySelector("h2").innerText = `¿Nos das acceso \n a tu cámara?`;
         document.querySelector("p").innerText = 'El acceso a tu camara será válido sólo \n por el tiempo en el que estés creando el GIFO.';
         btnActive();
-        document.getElementById('btnAllowCam').classList.add('active');
+        document.getElementById('btnAllowCam').classList.add('activeNum');
         document.getElementById('btnStart').innerText = "GRABAR";
         initializeCam();
 
@@ -111,19 +110,67 @@ document.getElementById('btnStart').addEventListener("click", function() {
         //Inicia grabación
         document.getElementById("camLoad").classList.add('camLoadHidden');
         btnActive();
-        document.getElementById('btnRecordCam').classList.add('active');
+        document.getElementById('btnRecordCam').classList.add('activeNum');
         startRecordingFn(streamVar);
+        interval();
         document.getElementById('btnStart').innerText = 'FINALIZAR';
 
     } else if (document.getElementById('btnStart').innerText == 'FINALIZAR') {
         //Finaliza grabación
         stopRecordingFn();
-
+        stopTimer();
     } else if (document.getElementById('btnStart').innerText == 'SUBIR GIFO') {
         //Subir Gifo a Giphy
         document.getElementById("camLoad").classList.add('camLoadHidden');
         btnActive();
-        document.getElementById('btnUploadCam').classList.add('active');
+        document.getElementById('btnUploadCam').classList.add('activeNum');
+        divUpRecord();
         sendGif(data64);
     }
 })
+
+function divUpRecord() {
+    let upRecord = document.getElementById('upRecord')
+    upRecord.classList.remove('hidden');
+    upRecord.classList.add('upRecord');
+
+    let textCreateGifos = document.getElementById('textCreateGifos');
+    textCreateGifos.innerText = "Estamos subiendo tu GIFO";
+    textCreateGifos.classList.remove('hidden');
+    textCreateGifos.classList.add('textCreateGifos');
+
+    let loader = document.getElementById('loader');
+    loader.classList.remove('hidden');
+    loader.classList.add('iconCreateGifos');
+
+    let check = document.getElementById('check');
+    check.classList.add('hidden');
+    check.classList.remove('iconCreateGifos');
+
+    setTimeout(() => {
+        loader.classList.add('hidden');
+        loader.classList.remove('iconCreateGifos');
+
+        check.classList.remove('hidden');
+        check.classList.add('iconCreateGifos');
+
+        textCreateGifos.innerText = "GIFO subido con éxito";
+
+        document.getElementById('btnStart').classList.add('hidden');
+    }, 2000);
+
+}
+
+let time;
+
+function interval() {
+    let t = 1;
+    time = setInterval(function() {
+        document.getElementById("timer").innerText = '00:00:' + t++;
+    }, 1000, "JavaScript");
+}
+
+function stopTimer() {
+    clearInterval(time);
+    document.getElementById("timer").innerText = "REPETIR CAPTURA";
+}

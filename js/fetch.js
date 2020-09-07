@@ -29,9 +29,7 @@ function init() {
     let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=12&offset=0&q=`;
     let str = document.getElementById("search").value;
     url = url.concat(str);
-    console.log(url);
     fetch(url).then(response => response.json()).then(content => {
-            console.log(content.data);
             if (content.data != "") {
                 try {
                     document.getElementById('sectionSearch').classList.remove('hidden');
@@ -45,7 +43,7 @@ function init() {
                     console.log(error);
                 }
             } else {
-                alert('No hay GIF para la palabra buscada: ' + document.getElementById('search').value);
+                console.log('No hay GIF para la palabra buscada: ' + document.getElementById('search').value);
                 showMessageNoFound();
             }
 
@@ -65,13 +63,11 @@ function seeMore() {
     let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=12&offset=${countSeeMore}&q=`;
     let str = document.getElementById("search").value;
     url = url.concat(str);
-    console.log(url);
 
     countSeeMore += 12;
 
 
     fetch(url).then(response => response.json()).then(content => {
-            console.log(content.data);
             if (content.data != "") {
                 try {
                     document.getElementById('sectionSearch').style.display = 'block';
@@ -82,11 +78,11 @@ function seeMore() {
                     createImgSearch(content, countID);
 
                 } catch (error) {
-                    alert('No hay más imagenes');
+                    console.log('No hay más imagenes');
                     console.log(error);
                 }
             } else {
-                alert('No hay GIF para la palabra buscada: ' + document.getElementById('search').value);
+                console.log('No hay GIF para la palabra buscada: ' + document.getElementById('search').value);
                 showMessageNoFound();
             }
         })
@@ -178,7 +174,6 @@ document.getElementById("search").addEventListener('change', inputChange => {
 var arrayFavorites = [];
 
 var arrFav = JSON.parse(localStorage.getItem("sendFavorites"));
-console.log(arrFav);
 if (arrFav != null) {
     arrayFavorites = arrFav;
 }
@@ -190,7 +185,6 @@ function addFavorites(iconFavorite) {
     let extractLastDigit = idImgHtml.slice(6, idImgHtml.length);
     let tagGif = document.getElementById(`imgGIF${extractLastDigit}`);
     arrayFavorites.push(tagGif.src);
-    console.log(arrayFavorites);
     localStorage.setItem('sendFavorites', JSON.stringify(arrayFavorites));
 }
 
@@ -247,7 +241,6 @@ function suggestSearch() {
 function completeInput(valueLi) {
     let inputSearch = document.getElementById('search');
     inputSearch.value = valueLi.innerText;
-    console.log(inputSearch);
     init();
     clearSuggest(false);
 }
