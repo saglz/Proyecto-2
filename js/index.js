@@ -46,30 +46,30 @@ let btnSearch = document.getElementById('imgBtnSearch');
 let imgCloseSearch = document.getElementById('imgCloseSearch');
 
 function ImgDarkTheme() {
-    logo.src = "img/Logo-modo-noc.svg";
-    burger.src = "img/burger-modo-noct.svg";
-    closeNav.src = "img/close-modo-noct.svg";
+    logo.src = "../imgLogo-modo-noc.svg";
+    burger.src = "../imgburger-modo-noct.svg";
+    closeNav.src = "../imgclose-modo-noct.svg";
     if (camara != null && movie != null) {
-        camara.src = "img/camara-modo-noc.svg";
-        movie.src = "img/pelicula-modo-noc.svg";
+        camara.src = "../imgcamara-modo-noc.svg";
+        movie.src = "../imgpelicula-modo-noc.svg";
     }
     if (btnSearch != null) {
-        btnSearch.src = "img/icon-search-mod-noc.svg";
-        imgCloseSearch.src = "img/close-modo-noct.svg";
+        btnSearch.src = "../imgicon-search-mod-noc.svg";
+        imgCloseSearch.src = "../imgclose-modo-noct.svg";
     }
 }
 
 function ImgLightTheme() {
-    logo.src = "img/logo-desktop.svg";
-    burger.src = "img/burger.svg";
-    closeNav.src = "img/button-close.svg";
+    logo.src = "../imglogo-desktop.svg";
+    burger.src = "../imgburger.svg";
+    closeNav.src = "../imgbutton-close.svg";
     if (camara != null && movie != null) {
-        camara.src = "img/camara.svg";
-        movie.src = "img/pelicula.svg";
+        camara.src = "../imgcamara.svg";
+        movie.src = "../imgpelicula.svg";
     }
     if (btnSearch != null) {
-        btnSearch.src = "img/icon-search.svg";
-        imgCloseSearch.src = "img/button-close.svg";
+        btnSearch.src = "../imgicon-search.svg";
+        imgCloseSearch.src = "../imgbutton-close.svg";
     }
 }
 
