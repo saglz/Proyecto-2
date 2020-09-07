@@ -1249,7 +1249,7 @@ nav ul li:nth-child(2)::after {
     position: unset;
   }
   .trending .containerCarouselTrending .btnBack:hover {
-    background-image: url("../img/Button-Slider-left-hover.svg");
+    background-image: url("../img/Button-slider-left-hover.svg");
     background-repeat: no-repeat;
     background-position: 3px;
     background-size: 100%;
