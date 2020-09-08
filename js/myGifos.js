@@ -78,7 +78,6 @@ function loadContentMyGifos(data) {
         divSaveFirstGifo.classList.remove('firstMyGifo');
     } else {
         noHaveContentMyGifos();
-        localStorage.removeItem('sendCreateGifos')
     }
 }
 
@@ -92,7 +91,7 @@ function noHaveContentMyGifos() {
 
 
 function removeMyGifos(imageMyGifos) {
-    debugger
+
     let idImgFullScreen = imageMyGifos.id;
     let extractLastDigit = idImgFullScreen.slice(6, idImgFullScreen.length);
     let idErrase = document.getElementById(`imgGIF${extractLastDigit}`);
