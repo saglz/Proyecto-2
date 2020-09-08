@@ -4,9 +4,9 @@ let btnGeneral = document.getElementById('buttonGeneral');
 let removeFavFullScreen;
 
 let url = `https://api.giphy.com/v1/gifs?api_key=${APIKEY}&ids=${localStorage.getItem('sendCreateGifos')}`;
-if (localStorage.getItem('sendCreateGifos') != "") {
+if (localStorage.getItem('sendCreateGifos') != "")
     fetch(url).then(result => result.json().then(data => loadContentMyGifos(data))).catch(err => { console.error(err) });
-}
+
 
 
 function loadContentMyGifos(data) {
