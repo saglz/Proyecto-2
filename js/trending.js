@@ -12,9 +12,6 @@ document.addEventListener("DOMContentLoaded", initTrending);
 /* Botones siguiente y atras trending */
 document.getElementById("btnNext").addEventListener('click', nextGIF);
 document.getElementById("btnBack").addEventListener('click', backGIF);
-/* Botones siguiente y atras Full Screen trending */
-/* document.getElementById("btnNextTreding").addEventListener('click', nextGIF);
-document.getElementById("btnBackTrending").addEventListener('click', backGIF); */
 
 
 function nextGIF() {
@@ -23,20 +20,23 @@ function nextGIF() {
         countEndTrending++;
         document.getElementById('sectionTrending').innerText = "";
         createImgTrending();
+
     } else {
-        console.log('Esta posicionado en la ultima imagen.')
+        countEndTrending = 3;
+        countStartTrending = 0;
+
     }
 }
 
 function backGIF() {
     if (countStartTrending == 0 && countEndTrending == 3) {
-        console.log('Esta posicionado en la primer imagen.')
+        countEndTrending = 50;
+        countStartTrending = 47;
     } else {
         countStartTrending--;
         countEndTrending--;
         document.getElementById('sectionTrending').innerText = "";
         createImgTrending();
-
     }
 }
 
