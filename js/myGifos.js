@@ -4,10 +4,10 @@ let btnGeneral = document.getElementById('buttonGeneral');
 let removeFavFullScreen;
 
 let url = `https://api.giphy.com/v1/gifs?api_key=${APIKEY}&ids=${localStorage.getItem('sendCreateGifos')}`;
-/* let valueLocalStorage = localStorage.getItem('sendCreateGifos');
-if (valueLocalStorage != "" && valueLocalStorage != null) { */
-fetch(url).then(result => result.json().then(data => loadContentMyGifos(data))).catch(err => { console.err(err) });
-/* } */
+let valueLocalStorage = localStorage.getItem('sendCreateGifos');
+if (valueLocalStorage != "" && valueLocalStorage != null) {
+    fetch(url).then(result => result.json().then(data => loadContentMyGifos(data))).catch(err => { console.err(err) });
+}
 
 
 
@@ -78,6 +78,7 @@ function loadContentMyGifos(data) {
         divSaveFirstGifo.classList.remove('firstMyGifo');
     } else {
         noHaveContentMyGifos();
+        localStorage.removeItem('sendCreateGifos')
     }
 }
 
@@ -87,7 +88,6 @@ function noHaveContentMyGifos() {
     btnGeneral.classList.add('hidden');
 
     divSaveFirstGifo.classList.remove('hidden');
-    /* localStorage.removeItem('sendCreateGifos'); */
 }
 
 
